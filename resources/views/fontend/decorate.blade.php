@@ -1,4 +1,20 @@
 @extends('fontend.inc.template')
+@section('style')
+<link rel="stylesheet" type="text/css" href="{{  asset('css/cropper.min.css') }}">
+<style>
+   /* .container {
+      max-width: 640px;
+      margin: 20px auto;
+    }
+    img {
+      max-width: 100%;
+    }
+    .cropper-view-box,
+    .cropper-face {
+      border-radius: 50%;
+    }*/
+</style>
+@endsection
 @section('content')
 <div class="text-center" style="padding-top: 10px">
 	<form action="{{ url('/uploadpic') }}" method="POST" id="form_upload" enctype="multipart/form-data">
@@ -11,29 +27,17 @@
 		<input type="hidden" name="image" >
 		
 		<br><br>
-		@if($data == 1)
-		<div class="container-fluid">
-		<canvas id="frame-img" width="381" height="205">	
-			<img src="{{asset('images/protect.png')}}" alt="frame" id="profile-img-tag" style="width: 100%;">
-			<br><br>
-		</canvas>	
-		</div>
-		@elseif($data == 2)
-		<div class="container-fluid">		
-			<img src="{{asset('images/activity.png')}}" alt="frame" id="profile-img-tag"  style="width: 100%;">
+		<div class="container-fluid" id="profile-img-tag"><img src="{{asset('images/' . $image)}}" alt="frame"  style="width: 100%;">
 			<br><br>
 		</div>
-		@elseif($data == 3)
-		<div class="container-fluid">		
-			<img src="{{asset('images/manage.png')}}" alt="frame" id="profile-img-tag" style="width: 100%;">
-			<br><br>
+		<div class="container-fluid frame-img d-none">
+		
+		<canvas id="frame-img" width="381" height="205" >	
+			
+		</canvas>
+		<br><br>	
 		</div>
-		@elseif($data == 4)
-		<div class="container-fluid">		
-			<img src="{{asset('images/opportunity.png')}}" alt="frame" id="profile-img-tag"  style="width: 100%;">
-			<br><br>
-		</div>
-		@endif
+		
 		<div class="container-fluid">
 			<div class="p-3" style="background-color: #2161BF;color: #ffffff; z-index: -1">ตกแต่งให้สวยงามด้วย Sticker
 			</div><button type="button" class="d-none" id="deletesticker">Delete</button>
@@ -46,9 +50,37 @@
 	</form>
 	<button class="my-btn" id="upload">ตกลง</button>
 </div>
+
+<div class="modal fade" id="modal" tabindex="-1" role="dialog" aria-labelledby="modalLabel" aria-hidden="true">
+	<div class="modal-dialog" role="document">
+		<div class="modal-content">
+			<div class="modal-header">
+				<h5 class="modal-title" id="modalLabel">ครอบตัดรูปภาพของท่าน</h5>
+				<button type="button" class="close" style="margin-left:0;" data-dismiss="modal" aria-label="Close">
+				<span aria-hidden="true">&times;</span>
+	  </button>
+			</div>
+			<div class="modal-body">
+				<div class="img-container">
+					<img id="image" src="">
+				</div>
+			</div>
+			<div class="modal-footer">
+				<div class="col-md-6 col-6">
+					<button type="button" class="btn btn-default" style="width:100%;" data-dismiss="modal">ยกเลิก</button>
+				</div>
+				<div class="col-md-6 col-6">
+					<button type="button" class="btn btn-primary" style="width:100%;" id="crop">ครอบตัด</button>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+
 @endsection
 
 @section('js')
+
 <style>
  input[type="file"] {
   display: none;
@@ -58,79 +90,50 @@
 <script src="https://unpkg.com/merge-images"></script>
 <script src="{{ asset('js/fabric.js') }}"></script>
 <script src="{{ asset('js/canvas-to-blob.min.js') }}"></script>
+<script src="<?=asset('js/cropper.min.js')?>"></script>
 <script type="text/javascript">
 $(document).ready(function() {
 	window.onload = function() {
 		document.getElementById('get_file_img').onclick = function() {
 			document.getElementById('input').click();
 		};
+		
 	}
+	var wHeight = $(window).height()
+    var wWidth = $(window).width()-30
+	var size = resize(381, 205, wHeight, wWidth)
+	var $modal = $('#modal');
+	var cropper;
+	var cropBoxData;
+	var canvasData;
+	var images = document.getElementById('image')
+
+	var done = function(url) {
+				images.src = url;
+				$('#image').hide();
+				$modal.modal('show');
+			};
+
+
+	$('#frame-img').attr('width' , size.width).attr('height' , size.height);
 	var canvas =  new fabric.Canvas('frame-img');
 	function readURL(input) {
         if (input.files && input.files[0]) {
             var reader = new FileReader();
             var img = document.getElementById('profile-img-tag');
             reader.onload = function (e) {
-
-             // fabric.Image.fromURL(e.target.result, function(img){
-             // 	canvas.add(img);
-             	
-             // });
-            var picture = e.target.result ;
-            picture.width =  800;
-            picture.height = 800;
-            console.log(e.target)
-            mergeImages([
-				  { src: picture , x: 0, y: 75  },
-				  { src: '{{url('images/protect.png')}}', x: 0, y: 0 },
-			  	]).then(b64 => {
-				  // document.querySelector('#profile-img-tag').src = b64
-				  document.querySelector('input[name=image]').value= b64
-				fabric.Image.fromURL(b64, function(img){
-	             	img.set({
-	             		left: 0,
-	             		top: 0, 
-	             		angle: 00,
-	             		scaleX:381/img.width, 
-	             		scaleY:205/img.height
-	             	})
-
-	             	canvas.add(img);
-	             	
-	             	// canvas.randerAll.bind();
-
-	             	canvas.item(1).selectable = false ;
-
-	             	canvas.add(new fabric.Text("น้องวิน", {
-	             		left:50,
-	             		top:145,
-	             		fontSize:16,
-	             		fill:"black" ,
-	             	})
-	             	)
-	             	canvas.item(2).selectable = false ;
-	             });
-
-
-			});
-
-			 // $('#profile-img-tag').attr('src', e.target.result);
-
-
-            }
-            reader.readAsDataURL(input.files[0]);
+            		done(reader.result);
+	        }
+	        reader.readAsDataURL(input.files[0]);
         }
     }
 
     $("#input").change(function(){
         readURL(this);
         
-        // var c = document.getElementById('frame-img');
-        // var ctx = c.getContext('2d');
-        // ctx.fillStyle = "#fff";
         var rect = new fabric.Rect({
-		    width: 381,
-		    height: 205,
+		    width: size.width,
+		    height: size.height,
 		    top: 0,
 		    left: 0,
 		    fill: 'rgba(255,255,255,1)'
@@ -162,25 +165,106 @@ $(document).ready(function() {
     	var activeObject = canvas.getActiveObject()
     	
     	if (activeObject) {
-    		if (confirm('Are you sure?')) {
-    			canvas.remove(activeObject);
-    		}
+    		canvas.remove(activeObject);
     	}
     	
     }
     $('#upload').click(function(e){
     	e.preventDefault();
-    	// console.log(canvas.toDataURL())
     	var c = document.getElementById('frame-img');
     	document.querySelector('input[name=image]').value = canvas.toDataURL();
     	$('#form_upload').submit();
-    	// canvas.getElement().toBlob(function(blob){
-    	// 	console.log(blob)
-    	// 	var formdata = new FormData($('#form_upload')[0]);
-    	// 	formdata.append('photo',blob);
-    	// 	$('#form_upload').submit();
-    	// })
+
     })
+    
+
+    function resize(srcWidth, srcHeight, maxHeight, maxWidth) {
+
+        var ratio = [maxWidth / srcWidth, maxHeight / srcHeight ];
+        ratio = Math.min(ratio[0], ratio[1]);
+
+        return { width:srcWidth*ratio, height:srcHeight*ratio };
+     }
+
+     $('#modal').on('shown.bs.modal', function () {
+     	cropper = new Cropper(image, {
+     		dragMode: 'move',
+     		aspectRatio: 1 / 1,
+     		autoCropArea: 1,
+     		restore: false,
+     		guides: false,
+     		center: false,
+     		highlight: false,
+     		cropBoxMovable: false,
+     		cropBoxResizable: false,
+     		toggleDragModeOnDblclick: false,
+     		ready: function () {
+				//Should set crop box data first here
+				cropper.setCropBoxData(cropBoxData).setCanvasData(canvasData);
+			}
+		});
+     }).on('hidden.bs.modal', function () {
+     	cropBoxData = cropper.getCropBoxData();
+     	canvasData = cropper.getCanvasData();
+     	cropper.destroy();
+     });
+
+    function merge(picture) {
+
+     	canvas.add(new fabric.Text('{{ $data2 }}', {
+         		left:50,
+         		top:145,
+         		fontSize:60,
+         		fill:"black" ,
+         	})
+     	)
+     	canvas.item(1).selectable = false ;
+     	
+    	mergeImages([
+		  { src: picture , x: 0, y: 75  },
+		  { src: '{{url('images/' . $image)}}', x: 0, y: 0 },
+		  { src: canvas.item(1).toDataURL() ,x:300 ,y:720},
+	  	])
+    	.then(b64 => {
+
+			$('#profile-img-tag').remove()
+			$('.frame-img').removeClass('d-none')
+			document.querySelector('input[name=image]').value= b64
+			fabric.Image.fromURL(b64, function(img) {
+             	img.set({
+             		left: 0,
+             		top: 0, 
+             		angle: 00,
+             		scaleX:size.width/img.width, 
+             		scaleY:size.height/img.height
+             	})
+				canvas.add(img);
+				canvas.item(2).selectable = false;
+        	});
+		});
+    }
+
+    document.getElementById('crop').addEventListener('click', function() {
+		var initialAvatarURL;
+		var cropperCavas;
+		$modal.modal('hide');
+		if (cropper) {
+			cropperCavas =  cropper.getCroppedCanvas({
+								width: 800,
+								height: 800,
+								// minWidth: 256,
+								//  minHeight: 256,
+								//  maxWidth: 4096,
+								//  maxHeight: 4096,
+								 fillColor: '#fff',
+								 imageSmoothingEnabled: false,
+								 imageSmoothingQuality: 'low',
+							});
+			merge(cropperCavas.toDataURL())
+		}
+	})
+
+
 });
 </script>
 

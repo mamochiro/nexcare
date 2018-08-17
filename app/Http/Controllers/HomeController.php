@@ -45,9 +45,12 @@ class HomeController extends Controller
 
     public function decorate(Request $request,$choice,$child)
     {
-        $data = $choice;
+        // $data = $choice;
         $data2 = $child;
-        return view('fontend.decorate', compact('data', 'data2'));
+
+        $image_array  = ['protect.png' , 'activity.png' , 'manage.png' ,'opportunity.png'];
+        $image = $image_array[$choice-1];
+        return view('fontend.decorate', compact('image', 'data2'));
     }
 
     public function share()
