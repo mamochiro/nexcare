@@ -6,6 +6,8 @@ use Illuminate\Http\Request;
 use App\Photo;
 use File;
 use Image;
+use DB; 
+use Auth;
 use Illuminate\Support\Facades\Validator;
 
 class PhotoController extends Controller
@@ -14,8 +16,8 @@ class PhotoController extends Controller
      public function uploadpic(Request $request)
     {
         // dd($request->image);
- 
-
+		 
+    	// $imageName = null ; 
         $validator = Validator::make($request->all(), [
                     'image'   =>  'required |nullable',
                 ]);
@@ -29,16 +31,17 @@ class PhotoController extends Controller
                 $thumbnailImage = Image::make($request->image);
                 $thumbnailImage->save('images/imgs/'.$image_name.'.png');
                 $imagemodel= new Photo();
-                // $imagemodel->user_id=Auth::id();
-                // $imagemodel->fbid=$fbid;
-                // $imagemodel->fb_name=Auth::user()->fb_name;
-                // $imagemodel->descrition=$request->desc;
-                $imagemode->image_id =22 ; 
+                $imagemodel->image_id=1;
                 $imagemodel->image = $image_name.'.png';
                 $imagemodel->save();
+    //            DB::table('image_user')->insert([
+				//     ['image_id' => 1, 'image' => $image_name.'.png']
+				    
+				// ]);
+                $imageName = 'images/imgs/'.$image_name.'.png' ; 
         }
 
-        return redirect('share')->with('success', 'Your images has been successfully Upload');
+        return view('fontend.share', [ 'imageName' => $imageName ]);
   }
 
 }

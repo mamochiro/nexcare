@@ -8,4 +8,5 @@ class Photo extends Model
 {
     //
     protected $table = 'image_user';
+    protected $fillable = ['id','images_id','image','created_at','update_at'];
 }

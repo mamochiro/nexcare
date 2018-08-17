@@ -81,7 +81,7 @@ $(document).ready(function() {
             picture.height = 800;
             console.log(e.target)
             mergeImages([
-				  { src: picture , x: 200, y: 0 , width : 800 , height :900 },
+				  { src: picture , x: 0, y: 75  },
 				  { src: '{{url('images/protect.png')}}', x: 0, y: 0 },
 			  	]).then(b64 => {
 				  // document.querySelector('#profile-img-tag').src = b64
@@ -101,10 +101,10 @@ $(document).ready(function() {
 
 	             	canvas.item(1).selectable = false ;
 
-	             	canvas.add(new fabric.Text("88dsknfds", {
-	             		left:100 ,
-	             		top:100,
-	             		fontSize:18,
+	             	canvas.add(new fabric.Text("น้องวิน", {
+	             		left:50,
+	             		top:145,
+	             		fontSize:16,
 	             		fill:"black" ,
 	             	})
 	             	)
