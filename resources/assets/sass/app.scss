@@ -1,0 +1,210 @@
+// Variables
+@import "variables";
+
+// Bootstrap
+@import '~bootstrap/scss/bootstrap';
+
+.navbar-laravel {
+    background-color: #fff;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.04);
+}
+
+#header {
+    position: relative;
+    float: none;
+    margin: 0 auto;
+    padding: 0px;
+    top: 0;
+}
+
+#tmp {
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover !important;
+    bottom: 0;
+    position: relative;
+    margin: 0 auto;
+    padding: 0px;
+}
+
+#footer {
+    position: relative;
+    margin: 0 auto;
+    padding: 1px;
+    bottom: 0;
+}
+
+.pc {
+    
+}
+
+.grad {
+    height: 10px;
+    background: linear-gradient(to right, #E9FDFC, #04DAD1, #0561D4);
+}
+
+#sidebar {
+    position: fixed;
+    width: 300px;
+    height: 100%;
+    background: linear-gradient(to top, #2791B4, #0078D8, #075CBB);
+    opacity: 0.9;
+    margin: 0px;
+    padding: 0px;
+    left: -300px;
+    transition: all 300ms linear;
+}
+
+#sidebar.active {
+    left: 0px;
+}
+
+#sidebar ul li {
+    color: #ffffff;
+    list-style: none;
+    padding: 15px 10px;
+    border-bottom: 1px solid #43E4E8;
+    font-family: 'db_helvethaicamon_x55_regular';
+    font-size: 36px;
+    height: 100%;
+}
+
+#sidebar .toggle-btn {
+    position: absolute;
+    left: 310px;
+    top: 20px;
+    padding: 6px;
+    background-color: #026ADF;
+    border-radius: 5px;
+}
+
+#sidebar .toggle-btn span {
+    display: block;
+    width: 35px;
+    height: 5px;
+    background: #61D7FF;
+    margin: 5px 0px;
+    border-radius: 5px;
+}
+
+.my-btn {
+    background-color: #FF0049;
+    border-radius: 15px;
+    padding: 5px 15px 5px 15px;
+    color: #ffffff;
+    font-family: 'db_helvethaicamon_x75_bd';
+    font-size: 30px;
+}
+
+.my-btn-register {
+    background-color: #FF0049;
+    border-radius: 8px;
+    padding: 0px 15px 0px 15px;
+    color: #ffffff;
+    font-family: 'db_adman_xregular';
+    font-size: 24px;
+}
+
+.my-topic {
+    background-color: #001588;
+    border-radius: 25px;
+    padding: 0px 15px 0px 15px;
+    font-family: 'db_adman_xregular';
+    font-size: 36px;
+}
+
+.demo-form {
+    font-family: 'db_helvethaicamon_x85_blk';
+    font-size: 22px;
+    color: #0B69B7;
+}
+
+.choice {
+    font-family: 'db_helvethaicamon_x85_blk';
+}
+
+.choice-button {
+    font-family: 'db_helvethaicamon_x55_regular';
+    font-size: 20px;
+    color: #ffffff;
+    border-radius: 20px;
+    width: 100%;
+    height: 115px;
+}
+
+.choice-button label b {
+    font-family: 'db_helvethaicamon_x75_bd';
+    font-size: 24px;
+    color: #ffffff;
+}
+
+input[type=radio] {
+    border: 0px;
+    width: 10%;
+    height: 1em;
+    position: relative;
+    top: 10px;
+    left: 10px;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+.form-section {
+    display: none;
+    width: 100%;
+}
+
+.form-section.current {
+    display: inherit;
+}
+
+.btn-info,
+.btn-default {
+    margin-top: 10px;
+}
+
+.tab-content {
+    background-color: rgba(255, 255, 255, 0.86);
+    border-radius: 15px;
+    margin-bottom: 10px;
+}
+
+.share-page {
+    font-family: 'db_helvethaicamon_x75_bd';
+    font-size: 24px;
+}
+
+.share-page p {
+    color: #FF3E63;
+    font-size: 55px;
+    line-height: 35px;
+    -webkit-text-stroke: 1px #ffffff;
+}
+
+.share-page p span {
+    color: #001588;
+    font-size: 40px;
+}
+
+.share-page p1 {
+	font-family: 'db_helvethaicamon_x55_regular';
+    color: #001588;
+    font-size: 22px;
+}
+
+.share-page p1 span {
+    font-family: 'db_helvethaicamon_x75_bd';
+    color: #E30613;
+}
+
+.article {
+	font-family: 'db_helvethaicamon_x65_med';
+	font-size: 40px;
+}
+
+.register-form {
+    margin: 5px 0px 0px 15px;
+    width: 50px;
+}
