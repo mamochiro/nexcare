@@ -1,4 +1,5 @@
 @extends('fontend.inc.template')
+
 @section('content')
 <style>
     p{
@@ -63,10 +64,12 @@
         <br>
         <a class="my-topic" style="color: #ffffff;">REGISTER</a>
         <div class="row align-items-center justify-content-center my-3">
-            <button class="btn btn-facebook col-6 d-flex align-items-center justify-content-center" type="button">
-                <i class="fab fa-facebook-square mr-1"></i>
-                Login ด้วย Facebook
-            </button>
+            <a href="/redirect">
+                <button class="btn btn-facebook col-12 d-flex align-items-center justify-content-center" type="button">
+                    <i class="fab fa-facebook-square mr-1"></i>
+                    Login ด้วย Facebook
+                </button>
+            </a>
         </div>
         <div class="row">
             <div class="col-5" style="text-align: right;">
