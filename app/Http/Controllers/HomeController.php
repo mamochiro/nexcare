@@ -61,11 +61,7 @@ class HomeController extends Controller
     public function gallery(Request $request)
     {
         $q = Input::get('q');
-        $users = Users_play::with('Image')
-                            ->when(!empty($q), function($query) use ($q) {
-                                return $query->where('child_name', 'LIKE', '%' . $q . '%');
-                            })
-                            ->paginate(10);
+        $users = Users_play::with('image')->paginate(10);
         return view('fontend.gallery', compact('users') );
         // if($q !== ""){
         //     $users = Users_play::where('child_name', 'LIKE', '%' . $q . '%')->paginate(10);
@@ -92,5 +88,24 @@ class HomeController extends Controller
     public function uploadpic(Request $request)
     {
         return view('fontend.result');
+    }
+
+    public function updateUser()
+    {
+        return view('fontend.update');
+    }
+
+    public function update(Request $request)
+    {
+        try {
+            $data = new Users_play();
+            $data->fill($request->all());
+            $data->save();
+            $choice = $data->choice;
+            $child = $data->child_name;
+        } catch(\exception $e){
+            die($e->getMessage());
+        }
+        return redirect()->route('decorate', compact('choice', 'child'));
     }
 }

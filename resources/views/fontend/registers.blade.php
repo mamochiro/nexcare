@@ -39,17 +39,19 @@
         </p>
         <p style="font-size: 22px">จะได้ไม่พลาดอัพเดตข่าวสารและกิจกรรม</p>
         <img src="{{asset('images/home_logo.png')}}" alt="logo" style="width: 50%;height: auto; " class="mb-3">
-        <div class="fb-page" 
-            data-href="https://www.facebook.com/NexcareThailand/" 
-            data-tabs="timeline" 
-            data-small-header="true" 
-            data-adapt-container-width="true" 
-            data-hide-cover="false" 
-            data-show-facepile="true"
-            data-height="150">
-            <blockquote cite="https://www.facebook.com/NexcareThailand/" class="fb-xfbml-parse-ignore">
-                <a href="https://www.facebook.com/NexcareThailand/">Nexcare</a>
-            </blockquote>
+        <div style="width: 100%; overflow: hidden;">
+            <div class="fb-page" 
+                data-href="https://www.facebook.com/NexcareThailand/" 
+                data-tabs="timeline" 
+                data-small-header="true" 
+                data-adapt-container-width="true" 
+                data-hide-cover="false" 
+                data-show-facepile="true"
+                data-height="150">
+                <blockquote cite="https://www.facebook.com/NexcareThailand/" class="fb-xfbml-parse-ignore">
+                    <a href="https://www.facebook.com/NexcareThailand/">Nexcare</a>
+                </blockquote>
+            </div>
         </div>
       </div>
     </div>
