@@ -13,7 +13,7 @@
 	<div class="wrap tab-content" style="margin: 0px 30px 0px 30px;">
 		<br>
 <!-- Search button -->
-		<form action="{{route('Gallery')}}" method="POST" role="search">
+		<form action="{{ route('Gallery') }}" method="GET" role="search">
 			{{ csrf_field() }}
 			<div class="input-group" style="width: 75%;margin-left: 12.5%">
 				<input type="text" class="form-control" name="q" placeholder="Search..."> 
@@ -25,12 +25,12 @@
 			</div>
 		</form>
 		
-		@if(isset($details))
+		@if(isset($users))
 <!-- Pagination bar -->
-			{{ $details->links('vender.pagination.custom') }}
-			@foreach($details as $u)
-				<img src="{{asset('images/protect.png')}}" alt="frame" style="width: 80%; margin-bottom: 10px">
-				<div class="row">
+			{{ $users->links('vender.pagination.custom') }}
+			@foreach($users as $u)
+				<img src="{{ asset('images/imgs/'.$u->Image->image) }}" alt="frame" style="width: 100%; margin-bottom: 10px">
+				<div class="row align-items-center">
 					<div class="col-6">
 						<p style="font-size: 35px;">น้อง {{ $u->child_name }}</p>				
 					</div>
@@ -39,8 +39,8 @@
 					</div>
 				</div>
 			@endforeach
-		@elseif(isset($message))
-			<p>{{ $message }}</p>
+		@else
+			<p class="text-center">ไม่พบข้อมูล</p>
 		@endif
 	</div>
 </div>

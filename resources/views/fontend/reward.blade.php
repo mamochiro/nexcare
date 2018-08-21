@@ -25,12 +25,12 @@
 </style>
 <div class="container" style="padding-top: 5px">
 	<br>
-	<ul class="nav nav-pills" role="tablist" style="font-size: 36px;">
+	<ul class="nav nav-pills d-flex justify-content-center" role="tablist" style="font-size: 36px;">
 	    <li class="nav-item">
-	      <a class="nav-link active" data-toggle="pill" href="#rule">กติกา</a>
+	    	<a class="nav-link active" data-toggle="pill" href="#rule">กติกา</a>
 	    </li>
 	    <li class="nav-item">
-	      <a class="nav-link" data-toggle="pill" href="#prize">รางวัล</a>
+	    	<a class="nav-link" data-toggle="pill" href="#prize">รางวัล</a>
 	    </li>
 	</ul>
 	<br>
@@ -56,9 +56,8 @@
 			<br>
 		</div>
 	</div>
-	<br>
-	<div class="text-center">		
-		<a href="{{route('Registers')}}" class="my-btn">ส่งรูป</a>
+	<div class="text-center pt-2 pb-4">		
+		<a href="{{ route('Registers') }}" class="my-btn btn-custom">ส่งรูป</a>
 	</div>
 </div>
 @endsection

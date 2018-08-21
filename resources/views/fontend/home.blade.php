@@ -55,7 +55,7 @@
 				มีอะไรให้สนุก ลงมือทำ และเรียนรู้ อีกมากมาย</p>
 				<img src="{{asset('images/home_tag.png')}}" alt="home_tag" style="width: 70%;position: absolute;right: 0px;top: 400px;">
 				<a href="{{route('Reward')}}" style="background-color: transparent;">
-					<img src="{{asset('images/join.png')}}" alt="join" style="width: 30%;position: relative;top: 140px">
+					<img src="{{asset('images/join.png')}}" alt="join" style="width: 30%;position: relative;top: 100px">
 				</a>
 				<img src="{{asset('images/home_girl.png')}}" alt="girl" style="width: 30%;position: absolute;left: 2px;top: 428px;">
 				<img src="{{asset('images/home_boy.png')}}" alt="boy" style="width: 30%;position: absolute;right: 0px;top: 458px;">

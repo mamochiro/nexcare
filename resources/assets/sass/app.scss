@@ -25,6 +25,7 @@
     position: relative;
     margin: 0 auto;
     padding: 0px;
+    min-height: calc(100vh - 124.56px - 78.92px);
 }
 
 #footer {
@@ -58,7 +59,10 @@
 #sidebar.active {
     left: 0px;
 }
-
+#sidebar ul {
+    max-height: 100vh;
+    overflow-y: auto;
+}
 #sidebar ul li {
     color: #ffffff;
     list-style: none;
@@ -66,13 +70,12 @@
     border-bottom: 1px solid #43E4E8;
     font-family: 'db_helvethaicamon_x55_regular';
     font-size: 36px;
-    height: 100%;
 }
 
 #sidebar .toggle-btn {
     position: absolute;
     left: 310px;
-    top: 20px;
+    top: 8px;
     padding: 6px;
     background-color: #026ADF;
     border-radius: 5px;
@@ -112,7 +115,51 @@
     font-family: 'db_adman_xregular';
     font-size: 36px;
 }
-
+.nav-pills {
+    .nav-item {
+        &:first-child {
+            a.nav-link {
+                border-top-right-radius: 0px;
+                border-bottom-right-radius: 0px;
+            }
+        }
+        &:last-child {
+            a.nav-link {
+                border-top-left-radius: 0px;
+                border-bottom-left-radius: 0px;
+            }
+        }
+    }
+}
+.modal-register {
+    .modal-header {
+        position: absolute;
+        border: none;
+        width: 100%;
+        padding: 0;
+        top: -1px;
+        left: -9px;
+        .close {
+            position: relative;
+            z-index: 1051;
+            padding: 8px 11px;
+            border-radius: 100px;
+            background-color: red;
+            color: #f8f8f8;
+            display: -webkit-flex;
+            display: -moz-flex;
+            display: -ms-flex;
+            display: -o-flex;
+            display: flex;
+            justify-content: center;
+            -ms-align-items: center;
+            align-items: center;
+            span {
+                font-size: 18px;
+            }
+        }
+    }
+}
 .demo-form {
     font-family: 'db_helvethaicamon_x85_blk';
     font-size: 22px;
@@ -128,8 +175,8 @@
     font-size: 20px;
     color: #ffffff;
     border-radius: 20px;
-    width: 100%;
-    height: 115px;
+    /*width: 100%;*/
+    /*height: 115px;*/
 }
 
 .choice-button label b {
@@ -207,4 +254,47 @@ input[type=radio] {
 .register-form {
     margin: 5px 0px 0px 15px;
     width: 50px;
+}
+.btn-custom {
+    padding: 5px 50px;
+    margin-bottom: 20px;
+    min-width: 170px;
+    line-height: 1.1;
+    span {
+        font-size: 16px;
+    }
+}
+.sticker {
+    position: relative;
+    &-title {
+        background-color: #2161BF;
+        color: #ffffff;
+        max-width: 70%;
+        border-top-right-radius: 10px;
+        border-top-left-radius: 10px;
+    }
+    &-item {
+        background-color:#6cd9ff;
+        border-radius: 10px;
+        img {
+            max-width: 60px;
+            margin: 0 5px;
+        }
+    }
+}
+.remark {
+    padding: 0 15px;
+    font-size: 18px;
+    color: #252525;
+    font-family: 'db_helvethaicamon_x55_regular'
+}
+.btn-facebook {
+    background-color: #4267b2;
+    color: #f8f8f8;
+    font-size: 20px;
+}
+.boxShadow {
+    -webkit-box-shadow: 0px 7px 21px 0px rgba(0,0,0,0.55);
+    -moz-box-shadow: 0px 7px 21px 0px rgba(0,0,0,0.55);
+    box-shadow: 0px 7px 21px 0px rgba(0,0,0,0.55);
 }

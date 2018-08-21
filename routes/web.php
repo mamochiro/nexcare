@@ -25,7 +25,7 @@ Route::get('/decorate/{choice}/{child}', 'HomeController@decorate')->name('decor
 Route::get('/share', 'HomeController@share')->name('Share');
 
 Route::get('/gallery', 'HomeController@gallery')->name('Gallery');
-Route::post('/gallery', 'HomeController@gallery')->name('Gallery');
+// Route::post('/gallery', 'HomeController@gallery')->name('Gallery');
 
 Route::get('/content', 'HomeController@content')->name('Content');
 
