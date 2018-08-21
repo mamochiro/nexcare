@@ -10585,6 +10585,15 @@ a.text-dark:focus {
   font-size: 36px;
 }
 
+.nav-pills .nav-item a.nav-link {
+  background-color: #007bff;
+  color: #f8f8f8;
+}
+
+.nav-pills .nav-item a.nav-link.active {
+  background-color: blue;
+}
+
 .nav-pills .nav-item:first-child a.nav-link {
   border-top-right-radius: 0px;
   border-bottom-right-radius: 0px;
