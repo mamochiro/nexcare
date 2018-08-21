@@ -58,16 +58,18 @@ class HomeController extends Controller
         return view('fontend.share');
     }
 
-    public function gallery()
+    public function gallery(Request $request)
     {
         $q = Input::get('q');
-        if($q !== ""){
-            $users = Users_play::where('child_name', 'LIKE', '%' . $q . '%')->paginate(10);
-            if (count($users) > 0) {
-                return view('fontend.gallery')->withDetails($users)->withQuery($q);
-            }
-        }
-        return view('fontend.gallery')->withMessage(" No match found!");
+        $users = Users_play::with('Image')->paginate(10);
+        return view('fontend.gallery', compact('users') );
+        // if($q !== ""){
+        //     $users = Users_play::where('child_name', 'LIKE', '%' . $q . '%')->paginate(10);
+        //     if (count($users) > 0) {
+        //         return view('fontend.gallery')->withDetails($users)->withQuery($q);
+        //     }
+        // }
+        // return view('fontend.gallery')->withMessage(" No match found!");
 
         // $data = Users_play::paginate(10);
         // return view('fontend.gallery', compact('data'));

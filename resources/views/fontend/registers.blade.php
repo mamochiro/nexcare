@@ -13,17 +13,44 @@
         color: #001588;
     }
 </style>
+
+<div id="fb-root"></div>
+<script>(function(d, s, id) {
+  var js, fjs = d.getElementsByTagName(s)[0];
+  if (d.getElementById(id)) return;
+  js = d.createElement(s); js.id = id;
+  js.src = 'https://connect.facebook.net/th_TH/sdk.js#xfbml=1&version=v3.1&appId=289711824944032&autoLogAppEvents=1';
+  fjs.parentNode.insertBefore(js, fjs);
+}(document, 'script', 'facebook-jssdk'));</script>
+
 <!-- Modal -->
-<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+<div class="modal fade mx-4 modal-register" id="myModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
   <div class="modal-dialog modal-dialog-centered" role="document">
     <div class="modal-content">
+        <div class="modal-header">
+            <h5 class="modal-title" id="modalLabel">&nbsp;</h5>
+            <button type="button" class="close" style="margin-left:0;" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+            </button>
+        </div>
       <div class="modal-body text-center">
         <p>กดไลค์แฟนเพจ<br>
             <span>Nexcare Thailand</span><br>
         </p>
         <p style="font-size: 22px">จะได้ไม่พลาดอัพเดตข่าวสารและกิจกรรม</p>
-        <img src="{{asset('images/home_logo.png')}}" alt="logo" style="width: 50%;height: auto; ">
-        <br><br>facebook <br><br>
+        <img src="{{asset('images/home_logo.png')}}" alt="logo" style="width: 50%;height: auto; " class="mb-3">
+        <div class="fb-page" 
+            data-href="https://www.facebook.com/raklukeclub" 
+            data-tabs="timeline" 
+            data-small-header="true" 
+            data-adapt-container-width="true" 
+            data-hide-cover="false" 
+            data-show-facepile="true"
+            data-height="150">
+            <blockquote cite="https://www.momandbabythailand.com/" class="fb-xfbml-parse-ignore">
+                <a href="https://www.momandbabythailand.com/">รักลูกคลับ - Rakluke Club</a>
+            </blockquote>
+        </div>
       </div>
     </div>
   </div>
@@ -31,27 +58,62 @@
 <form class="demo-form" action="{{ route('Registers.store') }}" method="POST">
     {{ csrf_field() }}
     <div class="form-section text-center container">
-    <br><a class="my-topic" style="color: #ffffff;">REGISTER</a><br><br>
+        <br>
+        <a class="my-topic" style="color: #ffffff;">REGISTER</a>
+        <div class="row align-items-center justify-content-center my-3">
+            <button class="btn btn-facebook col-6 d-flex align-items-center justify-content-center" type="button">
+                <i class="fab fa-facebook-square mr-1"></i>
+                Login ด้วย Facebook
+            </button>
+        </div>
         <div class="row">
             <div class="col-5" style="text-align: right;">
-                <label for="name" >ชื่อ-นามสกุล</label><br>
-                <label style="margin-top: 10px" for="phone" >เบอร์ติดต่อ</label><br>
-                <label for="mail" >E-mail</label><br>
-                <label for="child-name" >ชื่อเล่นลูก</label><br>
-                <label for="date" >วันเกิดลูก</label><br>
-                <label for="address" >ที่อยู่</label><br>
-                <label style="margin-top: 18px" for="province" >จังหวัด</label><br>
-                <label style="margin-top: 8px" for="post-code" >รหัสไปรษณีย์</label><br>
-                <label style="margin-top: 3px" for="date_join" >วันไปร่วมกิจกรรม</label>
+                <label for="name" >ชื่อ-นามสกุล</label>
             </div>
-            <div class="col-6">
+            <div class="col-7">
                 <input class="form-control" type="text" id="name" value="" name="name" required="required">
-                <input class="form-control" type="text" id="tel" value="" name="phone" style="margin-top: 5px" required="required">
-                <input class="form-control" type="mail" id="mail" value="" name="mail" style="margin-top: 5px" required="required">
-                <input class="form-control" type="text" id="child-name" name="child_name" value="" style="margin-top: 5px;margin-bottom: 5px" required="required">
-                <input class="form-control" type="text" id="date" name="child_date" data-format="DD-MM-YYYY" data-template="D MMM YYYY" name="date" value="" required="required">
-                <textarea class="form-control" type="text" id="address" name="address" value="" style="margin-top: 5px" required="required"></textarea>                    
-                <select class="form-control" name="province" placeholder="ระบุ จังหวัดที่อาศัย" style="margin-top: 5px" required="required">
+            </div>
+            <div class="col-5">
+                <label style="" for="phone" >เบอร์ติดต่อ</label>
+            </div>
+            <div class="col-7">
+                <input class="form-control" type="text" id="tel" value="" name="phone" required="required">
+                
+            </div>
+            <div class="col-5">
+                <label for="mail" >E-mail</label>
+            </div>
+            <div class="col-7">
+                <input class="form-control" type="mail" id="mail" value="" name="mail" required="required">
+            </div>
+            <div class="col-5">
+                <label for="child-name" >ชื่อเล่นลูก</label>
+            </div>
+            <div class="col-7">
+                <input class="form-control" type="text" id="child-name" name="child_name" value="" required="required">
+            </div>
+            <div class="col-5">
+                <label for="date" >วันเกิดลูก</label>
+            </div>
+            <div class="col-7">
+                <input class="form-control" type="date" name="child_date" required="required">
+            </div>
+            <div class="col-5">
+                <label for="address" >ที่อยู่</label>
+            </div>
+            <div class="col-7">
+                <textarea 
+                    class="form-control mb-2" 
+                    type="text" id="address" 
+                    name="address" 
+                    value="" 
+                    required="required"></textarea>              
+            </div>
+            <div class="col-5">
+                <label for="province" >จังหวัด</label>
+            </div>
+            <div class="col-7">
+                <select class="form-control" name="province" placeholder="ระบุ จังหวัดที่อาศัย" required="required">
                     <option value="" disabled="disabled" selected="">- กรุณาเลือกจังหวัด -</option>
                     <option value="กระบี่">กระบี่</option>
                     <option value="กรุงเทพมหานคร">กรุงเทพมหานคร</option>
@@ -136,36 +198,62 @@
                     <option value="อุทัยธานี">อุทัยธานี</option>
                     <option value="อุบลราชธานี">อุบลราชธานี</option>
                 </select>
-                <input class="form-control" type="text" id="post_code" name="post_code" value="" style="margin-top: 5px" required="required">
-                <input class="form-control" type="text" id="date_join" name="join_date" value="" style="margin-top: 5px" required="required">
+            </div>
+            <div class="col-5">
+                <label for="date_join" >รหัสไปรษณีย์</label>
+            </div>
+            <div class="col-7">
+                <input class="form-control" type="text" id="post_code" name="post_code" value="" required="required">
+            </div>
+            <div class="col-5">
+                <label for="date_join" >วันไปร่วมกิจกรรม</label>
+            </div>
+            <div class="col-7">
+                <input class="form-control" type="text" id="date_join" name="join_date" value="" required="required">
+            </div>
+            <div class="col-6">
+                
             </div>
         </div>
     </div>
+
+    <!-- select type theme -->
     <div class="container">
       <div class="form-section text-center choice">
         <br>
     	<p style="font-size: 40px;color: #001588;">คุณเป็น<b style="font-size: 55px">พ่อแม่แบบไหน</b> ?</p>
         <div class="row">
-            <div class="col-6" style="padding-right: 2.5px">
-                <div class="card choice-button border-light" style="background-color: #80C950;margin-bottom: 5px">
-                    <input type="radio" name="choice" value="1">
-                    <label style="line-height: 22px;">อยากให้ลูกเรียนรู้<br>แต่<b>ไม่อยากให้อยู่ห่างสายตา</b><br>ลูกทำอะไร ต้องอยู่ด้วยเสมอ</label>
-                </div>              
-                <div class="card choice-button border-light" style="background-color: #F99030;">
-                    <input type="radio" name="choice" value="2">
-                    <label style="line-height: 22px;"><b>ชอบชวนลูกผจญภัย</b><br>สนุกเรียนรู้ไปด้วยกัน<br>ลุยทำกิจกรรมทุกที่</label>
-                </div>
+            <div class="col-6 pr-2 mb-3 choice-button border-light">
+                    <label style="line-height: 22px; background-color: #80C950; height: 100%; border-radius: 10px;" class="p-3">
+                        <input type="radio" name="choice" value="1" class="d-none">
+                        อยากให้ลูกเรียนรู้<br>
+                        แต่<b>ไม่อยากให้อยู่ห่างสายตา</b><br>
+                        ลูกทำอะไร ต้องอยู่ด้วยเสมอ
+                    </label>
             </div>
-            <div class="col-6" style="padding-left: 2.5px">
-                
-                <div class="card choice-button border-light" style="background-color: #367ADD;margin-bottom: 5px">
-                    <input type="radio" name="choice" value="3">
-                    <label style="line-height: 22px;">อยากให้ลูกออกไปเรียนรู้<br>แต่ต้อง<b>มั่นใจว่าปลอดภัย</b><br>เครื่องป้องกันแน่น</label>
-                </div>
-                <div class="card choice-button border-light" style="background-color: #1CB0C4;">
-                    <input type="radio" name="choice" value="4">
-                    <label style="line-height: 22px;">พร้อมให้ลูกลุย<br><b>ล้มบ้าง เลอะบ้าง เจ็บบ้าง</b><br>ไม่เป็นไร อย่างน้อยก็ได้เรียนรู้</label>
-                </div>
+            <div class="col-6 pl-2 mb-3 choice-button border-light">           
+                    <label style="line-height: 22px; background-color: #F99030; height: 100%; border-radius: 10px;" class="p-3">
+                        <input type="radio" name="choice" value="2" class="d-none">
+                        <b>ชอบชวนลูกผจญภัย</b><br>
+                        สนุกเรียนรู้ไปด้วยกัน<br>
+                        ลุยทำกิจกรรมทุกที่
+                    </label>
+            </div>
+            <div class="col-6 pr-2 choice-button border-light">
+                    <label style="line-height: 22px; background-color: #367ADD; height: 100%; border-radius: 10px;" class="p-3">
+                        <input type="radio" name="choice" value="3" class="d-none">
+                        อยากให้ลูกออกไปเรียนรู้<br>
+                        แต่ต้อง<b>มั่นใจว่าปลอดภัย</b><br>
+                        เครื่องป้องกันแน่น
+                    </label>
+            </div>
+            <div class="col-6 pl-2 choice-button border-light">
+                    <label style="line-height: 22px; background-color: #1CB0C4; height: 100%; border-radius: 10px;" class="p-3">
+                        <input type="radio" name="choice" value="4" class="d-none">
+                        พร้อมให้ลูกลุย<br>
+                        <b>ล้มบ้าง เลอะบ้าง เจ็บบ้าง</b><br>
+                        ไม่เป็นไร อย่างน้อยก็ได้เรียนรู้
+                    </label>
             </div>
         </div>
       </div>
@@ -173,8 +261,8 @@
     </div>
 
     <div class="form-navigation text-center" style="padding-top: 10px">
-        <button type="button" class="next my-btn-register">ตกลง</button>
-        <input type="submit" class="my-btn" value="ตกลง">
+        <button type="button" class="next my-btn-register btn-custom">ตกลง</button>
+        <input type="submit" class="my-btn btn-custom" value="ตกลง">
         <span class="clearfix"></span>
     </div>
 </form>

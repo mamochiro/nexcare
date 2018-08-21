@@ -7,9 +7,10 @@
 	<!-- Fonts -->
 	<link rel="stylesheet" href="{{asset('fonts/stylesheet.css')}}" type="text/css" />
 	<!-- Stylesheets -->
-	<link rel="stylesheet" href="{{asset('css/app.css')}}" type="text/css" />
 	<link rel="stylesheet" href="{{asset('css/bootstrap.min.css')}}" type="text/css" />
 	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.2.0/css/all.css" integrity="sha384-hWVjflwFxL6sNzntih27bfxkr27PmbbK/iSvJ+a4+0owXq79v+lsFkW54bOGbiDQ" crossorigin="anonymous">
+	<link rel="stylesheet" href="{{asset('css/app.css')}}" type="text/css" />
+	<script src="{{ asset('js/jquery.js') }}"></script>
 	@yield('style')
 	@yield('js')	
 </head>
@@ -39,9 +40,9 @@
 		<div id="tmp"  class="d-lg-none" style="background-image: url({{asset('images/main_bg.png')}});">
 			@yield('content')			
 		</div>
-			<div id="footer" class="d-lg-none">
-				<img src="{{asset('images/footer_nexcare.png')}}" alt="footer" style="width: 100%;height: auto;">	
-			</div>
+		<div id="footer" class="d-lg-none">
+			<img src="{{asset('images/footer_nexcare.png')}}" alt="footer" style="width: 100%;height: auto;">	
+		</div>
 
 
 
@@ -52,12 +53,11 @@
 		</div>
 	</div>
 	<!-- script -->
-	<script src="{{asset('js/script.js')}}"></script>
+	<script src="{{ asset('js/script.js') }}"></script>
 
-	<script src="{{asset('js/jquery.js')}}"></script>
-	<script src="{{asset('js/moment.min.js')}}"></script>
-	<script src="{{asset('js/combodate.js')}}"></script>
-	<script src="{{asset('js/parsley.min.js')}}"></script>
+	<script src="{{ asset('js/moment.min.js') }}"></script>
+	<script src="{{ asset('js/combodate.js') }}"></script>
+	<script src="{{ asset('js/parsley.min.js')}}"></script>
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.0/umd/popper.min.js"></script>
   	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.0/js/bootstrap.min.js"></script>
 	<!-- modal auto show -->

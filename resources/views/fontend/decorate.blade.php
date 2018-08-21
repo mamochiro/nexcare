@@ -13,42 +13,47 @@
     .cropper-face {
       border-radius: 50%;
     }*/
+    input[type="file"] {
+	  display: none;
+	}
 </style>
 @endsection
 @section('content')
 <div class="text-center" style="padding-top: 10px">
 	<form action="{{ url('/uploadpic') }}" method="POST" id="form_upload" enctype="multipart/form-data">
 	{{ csrf_field() }}
-	
-		<a class="my-btn" style="color: #ffffff;" id="get_file_img"> 
+		<input type="file" id="input" accept="image/*" capture="camera">
+		<label class="my-btn btn-custom" style="color: #ffffff;" for="input"> 
 			เลือกรูป
-			<input type="file" id="input" accept="image/*" capture="camera">
-		</a>
+		</label>
 		<input type="hidden" name="image" >
 		
 		<br><br>
-		<div class="container-fluid" id="profile-img-tag"><img src="{{asset('images/' . $image)}}" alt="frame"  style="width: 100%;">
+		<div class="container-fluid" id="profile-img-tag">
+			<img src="{{asset('images/' . $image)}}" alt="frame"  style="width: 100%;">
 			<br><br>
 		</div>
-		<div class="container-fluid frame-img d-none">
-		
-		<canvas id="frame-img" width="381" height="205" >	
-			
+		<div class="container-fluid frame-img d-none mb-3">
+			<canvas id="frame-img">	
 		</canvas>
-		<br><br>	
 		</div>
-		
-		<div class="container-fluid">
-			<div class="p-3" style="background-color: #2161BF;color: #ffffff; z-index: -1">ตกแต่งให้สวยงามด้วย Sticker
-			</div><button type="button" class="d-none" id="deletesticker">Delete</button>
-			<div style="background-color:#6cd9ff ; z-index: 5" class="p-3" id="sticker">
-				<img src="{{asset('images/stickers/barn.png')}}" alt="sticker_panel">
+		<button type="button" class="d-none my-btn mx-auto btn-custom flex-column align-items-center" id="deletesticker">
+			ลบสติกเกอร์
+			<span>* เลือกสติกเกอร์ที่ต้องการลบ แล้วกดปุ่มนี้</span>
+		</button>
+		<div class="container-fluid sticker d-flex flex-column align-items-center">
+			<div class="px-3 py-2 sticker-title">
+				ตกแต่งให้สวยงามด้วย Sticker
 			</div>
-			<br><br>
-			
+			<div class="py-2 sticker-item col-12" id="sticker">
+				@for($i=1; $i <= 13; $i++)
+				<img src="{{ asset('images/stickers/'.$i.'.png') }}" alt="sticker_panel">
+				@endfor
+			</div>
 		</div>
+		<div class="remark d-flex my-1">* กด Sticker ที่ต้องการเพิ่ม</div>
 	</form>
-	<button class="my-btn" id="upload">ตกลง</button>
+	<button class="my-btn btn-custom my-3" id="upload" disabled="disabled">ตกลง</button>
 </div>
 
 <div class="modal fade" id="modal" tabindex="-1" role="dialog" aria-labelledby="modalLabel" aria-hidden="true">
@@ -57,8 +62,8 @@
 			<div class="modal-header">
 				<h5 class="modal-title" id="modalLabel">ครอบตัดรูปภาพของท่าน</h5>
 				<button type="button" class="close" style="margin-left:0;" data-dismiss="modal" aria-label="Close">
-				<span aria-hidden="true">&times;</span>
-	  </button>
+					<span aria-hidden="true">&times;</span>
+	  			</button>
 			</div>
 			<div class="modal-body">
 				<div class="img-container">
@@ -70,7 +75,7 @@
 					<button type="button" class="btn btn-default" style="width:100%;" data-dismiss="modal">ยกเลิก</button>
 				</div>
 				<div class="col-md-6 col-6">
-					<button type="button" class="btn btn-primary" style="width:100%;" id="crop">ครอบตัด</button>
+					<button type="button" class="btn btn-primary" style="width:100%;" id="crop" onclick="">ครอบตัด</button>
 				</div>
 			</div>
 		</div>
@@ -80,27 +85,16 @@
 @endsection
 
 @section('js')
-
-<style>
- input[type="file"] {
-  display: none;
- }
-</style>
-<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.js"></script>
 <script src="https://unpkg.com/merge-images"></script>
 <script src="{{ asset('js/fabric.js') }}"></script>
-<script src="{{ asset('js/canvas-to-blob.min.js') }}"></script>
-<script src="<?=asset('js/cropper.min.js')?>"></script>
+<script src="{{ asset('js/cropper.min.js') }}"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.0/umd/popper.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.0/js/bootstrap.min.js"></script>
 <script type="text/javascript">
 $(document).ready(function() {
-	window.onload = function() {
-		document.getElementById('get_file_img').onclick = function() {
-			document.getElementById('input').click();
-		};
-		
-	}
+	
 	var wHeight = $(window).height()
-    var wWidth = $(window).width()-30
+    var wWidth = $(window).width() - 30
 	var size = resize(381, 205, wHeight, wWidth)
 	var $modal = $('#modal');
 	var cropper;
@@ -129,33 +123,33 @@ $(document).ready(function() {
     }
 
     $("#input").change(function(){
+
         readURL(this);
-        
-        var rect = new fabric.Rect({
-		    width: size.width,
-		    height: size.height,
-		    top: 0,
-		    left: 0,
-		    fill: 'rgba(255,255,255,1)'
-		  });
-        canvas.add(rect);
-        canvas.item(0).selectable = false ;
         
     });
 
     $("#sticker img").click(function(){
     	console.log(canvas.getObjects().length )
 
-    	if(canvas.getObjects().length >  2 ){
-    		$('#deletesticker').removeClass('d-none')
-    	}else{
-    		$('#deletesticker').addClass('d-none')
-    	}
-    	// var img = $(this).attr("src");
-    	fabric.Image.fromURL(''+$(this).attr("src")+'', function(img){
-	             	canvas.add(img);
+    	posX = (size.width / 2) * Math.random();
+	    posY = (size.height / 2) * Math.random();
+    	fabric.Image.fromURL(''+$(this).attr("src")+'', function(img) {
+    				img.set({
+    					left : posX,
+    					top : posY,
+    					scaleY: 0.5,
+				        scaleX: 0.5,
+				        originX: "center", 
+				        originY: "center"
+    				})
+	             	canvas.add(img).setActiveObject(img);
 	             })
-	     
+
+    	if(canvas.getObjects().length >  2 ){
+    		$('#deletesticker').removeClass('d-none').addClass('d-flex')
+    	}else{
+    		$('#deletesticker').addClass('d-none').removeClass('d-flex')
+    	}
     });
 
     $('#deletesticker').click(function(){
@@ -163,10 +157,17 @@ $(document).ready(function() {
     })
     function deleteObjects(){
     	var activeObject = canvas.getActiveObject()
-    	
     	if (activeObject) {
     		canvas.remove(activeObject);
     	}
+    	setTimeout(function() {
+    		if(canvas.getObjects().length-1 >  2 ){
+	    		$('#deletesticker').removeClass('d-none').addClass('d-flex')
+
+	    	}else{
+	    		$('#deletesticker').addClass('d-none').removeClass('d-flex')
+	    	}
+    	},100)
     	
     }
     $('#upload').click(function(e){
@@ -189,11 +190,11 @@ $(document).ready(function() {
      $('#modal').on('shown.bs.modal', function () {
      	cropper = new Cropper(image, {
      		dragMode: 'move',
-     		aspectRatio: 1 / 1,
+     		aspectRatio: 6 / 6,
      		autoCropArea: 1,
      		restore: false,
      		guides: false,
-     		center: false,
+     		center: true,
      		highlight: false,
      		cropBoxMovable: false,
      		cropBoxResizable: false,
@@ -209,21 +210,38 @@ $(document).ready(function() {
      	cropper.destroy();
      });
 
+     canvas.on('object:added', )
+
     function merge(picture) {
+    	canvas.clear()
+    	var rect = new fabric.Rect({
+		    width: size.width,
+		    height: size.height,
+		    top: 0,
+		    left: 0,
+		    fill: 'rgba(255,255,255,1)'
+		  });
+        canvas.add(rect);
+        canvas.item(0).selectable = false ;
 
      	canvas.add(new fabric.Text('{{ $data2 }}', {
-         		left:50,
-         		top:145,
-         		fontSize:60,
+         		// left:50,
+         		// top:145,
+         		id: 'name',
+         		fontSize: 84,
+         		fontFamily: 'db_helvethaicamon_x75_bd',
          		fill:"black" ,
          	})
      	)
      	canvas.item(1).selectable = false ;
-     	
+     	console.log(canvas.item(1).width)
     	mergeImages([
-		  { src: picture , x: 0, y: 75  },
+		  { src: picture , x: 40, y: 60  },
 		  { src: '{{url('images/' . $image)}}', x: 0, y: 0 },
-		  { src: canvas.item(1).toDataURL() ,x:300 ,y:720},
+		  { src: canvas.item(1).toDataURL() ,
+		  	x: (234 + (canvas.item(1).width / 2) / 2),
+		  	y: 700
+		  },
 	  	])
     	.then(b64 => {
 
@@ -241,29 +259,43 @@ $(document).ready(function() {
 				canvas.add(img);
 				canvas.item(2).selectable = false;
         	});
+
+        	$('label[for=input]').text('เลือกรูปใหม่')
+
+        	$('#upload').attr('disabled', false)
 		});
     }
 
-    document.getElementById('crop').addEventListener('click', function() {
+    $('#crop').on('click', function() {
 		var initialAvatarURL;
 		var cropperCavas;
 		$modal.modal('hide');
 		if (cropper) {
 			cropperCavas =  cropper.getCroppedCanvas({
 								width: 800,
-								height: 800,
+								height: 2000,
 								// minWidth: 256,
-								//  minHeight: 256,
-								//  maxWidth: 4096,
-								//  maxHeight: 4096,
-								 fillColor: '#fff',
-								 imageSmoothingEnabled: false,
-								 imageSmoothingQuality: 'low',
+								// minHeight: 256,
+								// maxWidth: 1000,
+								// maxHeight: 1000,
+								fillColor: '#fff',
+								imageSmoothingEnabled: false,
+								imageSmoothingQuality: 'low',
 							});
 			merge(cropperCavas.toDataURL())
 		}
 	})
-
+  //   function objectMovedListener(ev) {
+  //   let target = ev.target;
+  //   console.log('left', target.left, 'top', target.top, 'width', target.width * target.scaleX, 'height', target.height * target.scaleY);
+  // }
+  // function objectAddedListener(ev) {
+  //   let target = ev.target;
+  //   // console.log('left', target.left, 'top', target.top, 'width', target.width, 'height', target.height);
+  //   console.log(target)
+  // }
+	 //  canvas.on('object:added', objectAddedListener);
+  //   canvas.on('object:modified', objectMovedListener);
 
 });
 </script>
