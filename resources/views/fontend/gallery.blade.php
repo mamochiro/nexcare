@@ -28,17 +28,19 @@
 <!-- Pagination bar -->
 			{{ $users->links('vender.pagination.custom') }}
 			@foreach($users as $u)
+				@if(!empty($u->image->image))
 				<div class="row align-items-center mb-3">
 					<div class="col-12 text-center">
-						<img src="{{ asset('images/imgs/'.$u->image) }}" alt="frame" style="width: 90%; margin-bottom: 10px">
+						<img src="{{ asset('images/imgs/'.$u->image->image) }}" alt="frame" style="width: 90%; margin-bottom: 10px">
 					</div>
 					<div class="col-6">
-						<p class="mb-0 pl-4 text-left" style="font-size: 35px;">น้อง {{ $u->child_name }}</p>				
+						<p class="mb-0 pl-4 text-left" style="font-size: 24px;">น้อง {{ $u->child_name }}</p>				
 					</div>
 					<div class="col-6">
 						<img src="{{ asset('images/share.png') }}" alt="share" style="width: 60%">
 					</div>
 				</div>
+				@endif
 			@endforeach
 		@else
 			<p class="text-center">ไม่พบข้อมูล</p>

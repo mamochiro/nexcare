@@ -39,20 +39,21 @@ class HomeController extends Controller
             $data->save();
             $choice = $data->choice;
             $child = $data->child_name;
+            $id = $data->id ; 
         } catch(\exception $e){
             die($e->getMessage());
         }
-        return redirect()->route('decorate', compact('choice', 'child'));
+        return redirect()->route('decorate', compact('choice', 'child' ,'id'));
     }
 
-    public function decorate(Request $request,$choice,$child)
+    public function decorate(Request $request,$choice,$child,$id)
     {
         // $data = $choice;
         $data2 = $child;
-
+        $id = $id ; 
         $image_array  = ['protect.png' , 'activity.png' , 'manage.png' ,'opportunity.png'];
         $image = $image_array[$choice-1];
-        return view('fontend.decorate', compact('image', 'data2'));
+        return view('fontend.decorate', compact('image', 'data2' , 'id'));
     }
 
     public function share()

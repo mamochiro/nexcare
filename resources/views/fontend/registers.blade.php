@@ -1,19 +1,22 @@
 @extends('fontend.inc.template')
-
-<<<<<<< HEAD
 @section('js')
+<script src="{{ asset('js/bootstrap-datepicker-thai.js') }}"></script>
+<script src="{{ asset('js/jquery.js') }}"></script>
+<link rel="stylesheet" type="text/css" href="https://code.jquery.com/ui/1.12.0/themes/smoothness/jquery-ui.css">
      <script type="text/javascript">
         $( document ).ready(function() {
             $( "#fb-login" ).click(function() {
                 window.location.href = "/redirect";
             });
+        // $('.datepicker').datepicker({language:'th-th',format:'dd/mm/yyyy'})
+        });  
+        $(document).ready(function() {
+            // $('.datepicker').datepicker({
+            //     format: 'dd/mm/yyyy'
+            // });
         });
-        
     </script>
 @endsection
-
-=======
->>>>>>> ab2f93a3826d9bbdaad7177a2a119c3808957335
 @section('content')
 <style>
     p{
@@ -78,19 +81,10 @@
         <br>
         <a class="my-topic" style="color: #ffffff;">REGISTER</a>
         <div class="row align-items-center justify-content-center my-3">
-<<<<<<< HEAD
             <button id="fb-login" class="btn btn-facebook col-6 d-flex align-items-center justify-content-center" type="button">
                 <i class="fab fa-facebook-square mr-1"></i>
                 Login ด้วย Facebook
             </button>
-=======
-            <a href="/redirect">
-                <button class="btn btn-facebook col-12 d-flex align-items-center justify-content-center" type="button">
-                    <i class="fab fa-facebook-square mr-1"></i>
-                    Login ด้วย Facebook
-                </button>
-            </a>
->>>>>>> ab2f93a3826d9bbdaad7177a2a119c3808957335
         </div>
         <div class="row">
             <div class="col-5" style="text-align: right;">
@@ -122,7 +116,8 @@
                 <label for="date" >วันเกิดลูก</label>
             </div>
             <div class="col-7">
-                <input class="form-control" type="date" name="child_date" required="required">
+                <input class="form-control" type="datetime-local" name="child_date" id="testdate3" required="required">
+                {{-- <input type="datetime-local" value="02/16/12" data-date-format="mm/dd/yy" class="datepicker" > --}}
             </div>
             <div class="col-5">
                 <label for="address" >ที่อยู่</label>
@@ -235,7 +230,11 @@
                 <label for="date_join" >วันไปร่วมกิจกรรม</label>
             </div>
             <div class="col-7">
-                <input class="form-control" type="text" id="date_join" name="join_date" value="" required="required">
+                {{-- <input class="form-control" type="text" id="date_join" name="join_date" value="" required="required"> --}}
+                <select class="form-control" id="date_join" name="join_date" required="required">
+                    <option value="2018-10-20">เสาร์ 20 ตุลาคม</option>
+                    <option value="2018-10-27">เสาร์ 27 ตุลาคม</option>
+                </select>
             </div>
             <div class="col-6">
                 
@@ -247,7 +246,7 @@
     <div class="container">
       <div class="form-section text-center choice">
         <br>
-    	<p style="font-size: 40px;color: #001588;">คุณเป็น<b style="font-size: 55px">พ่อแม่แบบไหน</b> ?</p>
+        <p style="font-size: 40px;color: #001588;">คุณเป็น<b style="font-size: 55px">พ่อแม่แบบไหน</b> ?</p>
         <div class="row">
             <div class="col-6 pr-2 mb-3 choice-button border-light">
                     <label style="line-height: 22px; background-color: #80C950; height: 100%; border-radius: 10px;" class="p-3">

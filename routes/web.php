@@ -20,9 +20,10 @@ Route::get('/registers', 'HomeController@registers')->name('Registers');
 
 Route::post('/store', 'HomeController@store')->name('Registers.store');
 
-Route::get('/decorate/{choice}/{child}', 'HomeController@decorate')->name('decorate');
+Route::get('/decorate/{choice}/{child}/{id}', 'HomeController@decorate')->name('decorate');
 
 Route::get('/share', 'HomeController@share')->name('Share');
+Route::get('/share/{name}', 'PhotoController@sharePage');
 
 Route::get('/gallery', 'HomeController@gallery')->name('Gallery');
 // Route::post('/gallery', 'HomeController@gallery')->name('Gallery');

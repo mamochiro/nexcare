@@ -36,7 +36,7 @@
 }(document, 'script', 'facebook-jssdk'));</script>
 
 <!-- Modal -->
-<div class="modal fade mx-4 modal-register" id="myModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+{{-- <div class="modal fade mx-4 modal-register" id="myModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
   <div class="modal-dialog modal-dialog-centered" role="document">
     <div class="modal-content">
         <div class="modal-header">
@@ -66,7 +66,7 @@
       </div>
     </div>
   </div>
-</div>
+</div> --}}
 <form class="demo-form" action="/update" method="POST">
     {{ csrf_field() }}
     <div class="form-section text-center container">

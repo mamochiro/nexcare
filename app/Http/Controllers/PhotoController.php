@@ -27,7 +27,7 @@ class PhotoController extends Controller
         {
             return back()->with('warning', 'กรุณาเลือกรูปของท่าน ก่อนเข้าร่วมกิจกรรม');
         }else{
-                // $user_play = Users_play::where('user_id' , Auth::id())->first();
+                // $user_play = Users_play::where('mail' , Auth::id())->first();
                 // $image_id = $user_play->id; 
                 // dd( Auth::id() );
 
@@ -35,13 +35,24 @@ class PhotoController extends Controller
                 $thumbnailImage = Image::make($request->image);
                 $thumbnailImage->save('images/imgs/'.$image_name.'.png');
                 $imagemodel= new Photo();
-                $imagemodel->image_id=4;
+                $imagemodel->image_id=$request->id;
                 $imagemodel->image = $image_name.'.png';
                 $imagemodel->save();
                 $imageName = 'images/imgs/'.$image_name.'.png' ; 
         }
 
-        return view('fontend.share', [ 'imageName' => $imageName ]);
+        return view('fontend.share', [ 'imageName' => $imageName ,
+                                        'image_name' => $image_name,
+                                        ]);
   }
+
+  public function sharePage($imageName)
+    {
+          $imageShare = $imageName;
+
+          $imageForShare = $imageName;
+          return view('fontend.sharePage', ['imageForShare' => $imageForShare,
+                                      ]);
+    }
 
 }

@@ -28,7 +28,7 @@
 			เลือกรูป
 		</label>
 		<input type="hidden" name="image" >
-		
+		<input type="hidden" name="id"  value="{{ $id }}">
 		<br><br>
 		<div class="container-fluid" id="profile-img-tag">
 			<img src="{{asset('images/' . $image)}}" alt="frame"  style="width: 100%;">
