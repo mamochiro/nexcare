@@ -35,8 +35,7 @@
 			<br><br>
 		</div>
 		<div class="container-fluid frame-img d-none mb-3">
-			<canvas id="frame-img">	
-		</canvas>
+			<canvas id="frame-img"></canvas>
 		</div>
 		<button type="button" class="d-none my-btn mx-auto btn-custom flex-column align-items-center" id="deletesticker">
 			ลบสติกเกอร์
@@ -193,7 +192,7 @@ $(document).ready(function() {
      	cropper = new Cropper(image, {
      		dragMode: 'move',
      		aspectRatio: 1 / 1,
-     		autoCropArea: 0.8,
+     		autoCropArea: 1,
      		restore: false,
      		guides: false,
      		center: true,

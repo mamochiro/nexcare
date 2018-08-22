@@ -33,6 +33,7 @@ class PhotoController extends Controller
 
                 $image_name=str_random(10);
                 $thumbnailImage = Image::make($request->image);
+                $thumbnailImage->resize(600, 315);
                 $thumbnailImage->save('images/imgs/'.$image_name.'.png');
                 $imagemodel= new Photo();
                 $imagemodel->image_id=$request->id;

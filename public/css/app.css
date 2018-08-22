@@ -10485,6 +10485,11 @@ a.text-dark:focus {
   top: 0;
 }
 
+.sub {
+  top: -1em;
+  font-size: 10px;
+}
+
 #tmp {
   background-repeat: no-repeat;
   background-position: center;

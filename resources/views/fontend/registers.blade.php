@@ -1,6 +1,6 @@
 @extends('fontend.inc.template')
 @section('js')
-<script src="{{ asset('js/bootstrap-datepicker-thai.js') }}"></script>
+<!-- <script src="{{ asset('js/bootstrap-datepicker-thai.js') }}"></script> -->
 <script src="{{ asset('js/jquery.js') }}"></script>
 <link rel="stylesheet" type="text/css" href="https://code.jquery.com/ui/1.12.0/themes/smoothness/jquery-ui.css">
      <script type="text/javascript">
@@ -116,8 +116,8 @@
                 <label for="date" >วันเกิดลูก</label>
             </div>
             <div class="col-7">
-                <input class="form-control" type="datetime-local" name="child_date" id="testdate3" required="required">
-                {{-- <input type="datetime-local" value="02/16/12" data-date-format="mm/dd/yy" class="datepicker" > --}}
+                <input class="form-control" type="text" name="child_date" id="date" required="required">
+                {{-- <input type="datetime-local" value="" data-date-format="mm/dd/yy" class="datepicker" > --}}
             </div>
             <div class="col-5">
                 <label for="address" >ที่อยู่</label>
