@@ -30,7 +30,7 @@
 			@foreach($users as $u)
 				<div class="row align-items-center mb-3">
 					<div class="col-12 text-center">
-						<img src="{{ asset('images/imgs/'.$u->image->image) }}" alt="frame" style="width: 90%; margin-bottom: 10px">
+						<img src="{{ asset('images/imgs/'.$u->image) }}" alt="frame" style="width: 90%; margin-bottom: 10px">
 					</div>
 					<div class="col-6">
 						<p class="mb-0 pl-4 text-left" style="font-size: 35px;">น้อง {{ $u->child_name }}</p>				

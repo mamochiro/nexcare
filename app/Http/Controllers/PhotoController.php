@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Photo;
+use App\Users_play;
 use File;
 use Image;
 use DB; 
@@ -26,18 +27,17 @@ class PhotoController extends Controller
         {
             return back()->with('warning', 'กรุณาเลือกรูปของท่าน ก่อนเข้าร่วมกิจกรรม');
         }else{
+                // $user_play = Users_play::where('user_id' , Auth::id())->first();
+                // $image_id = $user_play->id; 
+                // dd( Auth::id() );
 
                 $image_name=str_random(10);
                 $thumbnailImage = Image::make($request->image);
                 $thumbnailImage->save('images/imgs/'.$image_name.'.png');
                 $imagemodel= new Photo();
-                $imagemodel->image_id=1;
+                $imagemodel->image_id=4;
                 $imagemodel->image = $image_name.'.png';
                 $imagemodel->save();
-    //            DB::table('image_user')->insert([
-				//     ['image_id' => 1, 'image' => $image_name.'.png']
-				    
-				// ]);
                 $imageName = 'images/imgs/'.$image_name.'.png' ; 
         }
 

@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Input;
 use App\Users_play;
+use Auth;
 
 class HomeController extends Controller
 {
@@ -34,6 +35,7 @@ class HomeController extends Controller
 
             $data = new Users_play();
             $data->fill($request->all());
+            // $data->user_id = Null;
             $data->save();
             $choice = $data->choice;
             $child = $data->child_name;
@@ -66,6 +68,8 @@ class HomeController extends Controller
                                 return $query->where('child_name', 'LIKE', '%' . $q . '%');
                             })
                             ->paginate(10);
+
+        $uses = Users_play::all();                 
         return view('fontend.gallery', compact('users') );
         // if($q !== ""){
         //     $users = Users_play::where('child_name', 'LIKE', '%' . $q . '%')->paginate(10);
@@ -104,6 +108,7 @@ class HomeController extends Controller
         try {
             $data = new Users_play();
             $data->fill($request->all());
+            // $data->user_id = Auth::id();
             $data->save();
             $choice = $data->choice;
             $child = $data->child_name;
