@@ -9,6 +9,7 @@
 	<link rel="stylesheet" href="{{asset('fonts/stylesheet.css')}}" type="text/css" />
 	<!-- Stylesheets -->
 	<link rel="stylesheet" href="{{asset('css/bootstrap.min.css')}}" type="text/css" />
+	<link rel="stylesheet" href="{{asset('css/jquery.datetimepicker.css')}}" type="text/css" />
 	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.2.0/css/all.css" integrity="sha384-hWVjflwFxL6sNzntih27bfxkr27PmbbK/iSvJ+a4+0owXq79v+lsFkW54bOGbiDQ" crossorigin="anonymous">
 	<link rel="stylesheet" href="{{asset('css/app.css')}}" type="text/css" />
 	<script src="{{ asset('js/jquery.js') }}"></script>
@@ -54,7 +55,8 @@
 		</div>
 	</div>
 	<!-- script -->
-	<script src="{{ asset('js/script.js') }}"></script>
+	<script src="https://www.ninenik.com/js/jquery.datetimepicker.full.js"></script>
+	<script src="{{ asset('js/script.js') }}?v=0.0.1"></script>
 
 	<script src="{{ asset('js/moment.min.js') }}"></script>
 	<script src="{{ asset('js/combodate.js') }}"></script>
@@ -68,11 +70,11 @@
 		}); 
 	</script>
 	<!-- combodate -->
-	<script>
+	<!-- <script>
 	    $(function(){
 	        $('#date').combodate();    
 	    });
-	</script>
+	</script> -->
 	<!-- parsley form -->
 	<script>
 	    $(function () {

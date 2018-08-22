@@ -108,7 +108,8 @@
                 <label for="date" >วันเกิดลูก</label>
             </div>
             <div class="col-7">
-                <input class="form-control" type="date" name="child_date" required="required">
+                <input class="form-control" type="text" name="child_date" id="date" required="required">
+                <!-- <input class="form-control" type="date" name="child_date" required="required"> -->
             </div>
             <div class="col-5">
                 <label for="address" >ที่อยู่</label>
@@ -221,7 +222,11 @@
                 <label for="date_join" >วันไปร่วมกิจกรรม</label>
             </div>
             <div class="col-7">
-                <input class="form-control" type="text" id="date_join" name="join_date" value="" required="required">
+                {{-- <input class="form-control" type="text" id="date_join" name="join_date" value="" required="required"> --}}
+                <select class="form-control" id="date_join" name="join_date" required="required">
+                    <option value="2018-10-20">เสาร์ 20 ตุลาคม</option>
+                    <option value="2018-10-27">เสาร์ 27 ตุลาคม</option>
+                </select>
             </div>
             <div class="col-6">
                 

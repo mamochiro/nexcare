@@ -1,30 +1,20 @@
 @extends('fontend.inc.template')
-@section('js')  
-  <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
-  <script src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.11.1/i18n/datepicker-th.js"></script>
-  <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
-  {{-- <link rel="stylesheet" href="/resources/demos/style.css"> --}}
-  <script type="text/javascript">
+@section('js')
+<!-- <script src="{{ asset('js/bootstrap-datepicker-thai.js') }}"></script> -->
+<script src="{{ asset('js/jquery.js') }}"></script>
+<link rel="stylesheet" type="text/css" href="https://code.jquery.com/ui/1.12.0/themes/smoothness/jquery-ui.css">
+     <script type="text/javascript">
         $( document ).ready(function() {
             $( "#fb-login" ).click(function() {
                 window.location.href = "/redirect";
             });
-        $.datepicker.setDefaults( $.datepicker.regional[ "th" ] );
-        var currentDate = new Date();
-
-        currentDate.setYear(currentDate.getFullYear() + 543);
-          // Birth date
-          $("#date-of-birth").datepicker({
-            changeMonth: true,
-            changeYear: true,
-            yearRange: '+443:+543',
-            dateFormat: 'dd/mm/yy',
-            onSelect: function(date) {
-              $("#edit-date-of-birth").addClass('filled');
-            }
-          });
-        $('#date-of-birth').datepicker("setDate",currentDate );
-                });                
+        // $('.datepicker').datepicker({language:'th-th',format:'dd/mm/yyyy'})
+        });  
+        $(document).ready(function() {
+            // $('.datepicker').datepicker({
+            //     format: 'dd/mm/yyyy'
+            // });
+        });
     </script>
 @endsection
 @section('content')
@@ -126,9 +116,8 @@
                 <label for="date" >วันเกิดลูก</label>
             </div>
             <div class="col-7">
-                {{-- <input class="form-control" type="datetime-local" name="child_date" id="testdate3" required="required"> --}}
-                <input type="text" name="child_date" id="date-of-birth" required="required">
-                {{-- <input type="datetime-local" value="02/16/12" data-date-format="mm/dd/yy" class="datepicker" > --}}
+                <input class="form-control" type="text" name="child_date" id="date" required="required">
+                {{-- <input type="datetime-local" value="" data-date-format="mm/dd/yy" class="datepicker" > --}}
             </div>
             <div class="col-5">
                 <label for="address" >ที่อยู่</label>
@@ -243,8 +232,8 @@
             <div class="col-7">
                 {{-- <input class="form-control" type="text" id="date_join" name="join_date" value="" required="required"> --}}
                 <select class="form-control" id="date_join" name="join_date" required="required">
-                    <option value="2018-10-20">เสาร์ 20 ตุลาคม 2561</option>
-                    <option value="2018-10-27">เสาร์ 27 ตุลาคม 2561</option>
+                    <option value="2018-10-20">เสาร์ 20 ตุลาคม</option>
+                    <option value="2018-10-27">เสาร์ 27 ตุลาคม</option>
                 </select>
             </div>
             <div class="col-6">
