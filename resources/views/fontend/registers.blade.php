@@ -1,5 +1,6 @@
 @extends('fontend.inc.template')
 
+<<<<<<< HEAD
 @section('js')
      <script type="text/javascript">
         $( document ).ready(function() {
@@ -11,6 +12,8 @@
     </script>
 @endsection
 
+=======
+>>>>>>> ab2f93a3826d9bbdaad7177a2a119c3808957335
 @section('content')
 <style>
     p{
@@ -51,17 +54,19 @@
         </p>
         <p style="font-size: 22px">จะได้ไม่พลาดอัพเดตข่าวสารและกิจกรรม</p>
         <img src="{{asset('images/home_logo.png')}}" alt="logo" style="width: 50%;height: auto; " class="mb-3">
-        <div class="fb-page" 
-            data-href="https://www.facebook.com/NexcareThailand/" 
-            data-tabs="timeline" 
-            data-small-header="true" 
-            data-adapt-container-width="true" 
-            data-hide-cover="false" 
-            data-show-facepile="true"
-            data-height="150">
-            <blockquote cite="https://www.facebook.com/NexcareThailand/" class="fb-xfbml-parse-ignore">
-                <a href="https://www.facebook.com/NexcareThailand/">Nexcare</a>
-            </blockquote>
+        <div style="width: 100%; overflow: hidden;">
+            <div class="fb-page" 
+                data-href="https://www.facebook.com/NexcareThailand/" 
+                data-tabs="timeline" 
+                data-small-header="true" 
+                data-adapt-container-width="true" 
+                data-hide-cover="false" 
+                data-show-facepile="true"
+                data-height="150">
+                <blockquote cite="https://www.facebook.com/NexcareThailand/" class="fb-xfbml-parse-ignore">
+                    <a href="https://www.facebook.com/NexcareThailand/">Nexcare</a>
+                </blockquote>
+            </div>
         </div>
       </div>
     </div>
@@ -73,10 +78,19 @@
         <br>
         <a class="my-topic" style="color: #ffffff;">REGISTER</a>
         <div class="row align-items-center justify-content-center my-3">
+<<<<<<< HEAD
             <button id="fb-login" class="btn btn-facebook col-6 d-flex align-items-center justify-content-center" type="button">
                 <i class="fab fa-facebook-square mr-1"></i>
                 Login ด้วย Facebook
             </button>
+=======
+            <a href="/redirect">
+                <button class="btn btn-facebook col-12 d-flex align-items-center justify-content-center" type="button">
+                    <i class="fab fa-facebook-square mr-1"></i>
+                    Login ด้วย Facebook
+                </button>
+            </a>
+>>>>>>> ab2f93a3826d9bbdaad7177a2a119c3808957335
         </div>
         <div class="row">
             <div class="col-5" style="text-align: right;">

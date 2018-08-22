@@ -61,7 +61,11 @@ class HomeController extends Controller
     public function gallery(Request $request)
     {
         $q = Input::get('q');
-        $users = Users_play::with('Image')->paginate(10);
+        $users = Users_play::with('image')
+                            ->when(!empty($q), function($query) use ($q) {
+                                return $query->where('child_name', 'LIKE', '%' . $q . '%');
+                            })
+                            ->paginate(10);
         return view('fontend.gallery', compact('users') );
         // if($q !== ""){
         //     $users = Users_play::where('child_name', 'LIKE', '%' . $q . '%')->paginate(10);

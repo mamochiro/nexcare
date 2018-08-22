@@ -3,6 +3,7 @@
 <head>
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+	<meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests">
 	<title>Microsite-Nexcare</title>
 	<!-- Fonts -->
 	<link rel="stylesheet" href="{{asset('fonts/stylesheet.css')}}" type="text/css" />
@@ -37,7 +38,7 @@
 					<img src="{{asset('images/logo.png')}}" alt="header" style="width: 100%;height: auto;">
 				</div>
 		</div>
-		<div id="tmp"  class="d-lg-none" style="background-image: url({{asset('images/main_bg.png')}});">
+		<div id="tmp"  class="d-lg-none" style="background-image: url({{ asset('images/main_bg.png') }});">
 			@yield('content')			
 		</div>
 		<div id="footer" class="d-lg-none">

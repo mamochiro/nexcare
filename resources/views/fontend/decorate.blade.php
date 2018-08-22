@@ -22,7 +22,8 @@
 <div class="text-center" style="padding-top: 10px">
 	<form action="{{ url('/uploadpic') }}" method="POST" id="form_upload" enctype="multipart/form-data">
 	{{ csrf_field() }}
-		<input type="file" id="input" accept="image/*" capture="camera">
+		<!-- <input type="file" id="input" accept="image/*" capture="camera"> -->
+		<input type="file" id="input" accept="image/*">
 		<label class="my-btn btn-custom" style="color: #ffffff;" for="input"> 
 			เลือกรูป
 		</label>
@@ -173,6 +174,7 @@ $(document).ready(function() {
     $('#upload').click(function(e){
     	e.preventDefault();
     	var c = document.getElementById('frame-img');
+    	canvas.renderAll();
     	document.querySelector('input[name=image]').value = canvas.toDataURL();
     	$('#form_upload').submit();
 
@@ -190,8 +192,8 @@ $(document).ready(function() {
      $('#modal').on('shown.bs.modal', function () {
      	cropper = new Cropper(image, {
      		dragMode: 'move',
-     		aspectRatio: 6 / 6,
-     		autoCropArea: 1,
+     		aspectRatio: 1 / 1,
+     		autoCropArea: 0.8,
      		restore: false,
      		guides: false,
      		center: true,
@@ -199,10 +201,14 @@ $(document).ready(function() {
      		cropBoxMovable: false,
      		cropBoxResizable: false,
      		toggleDragModeOnDblclick: false,
+     		viewMode:1,
+     		checkOrientation: true,
+     		minCanvasHeight: 200,
+     		minContainerHeight: 200,
      		ready: function () {
-				//Should set crop box data first here
-				cropper.setCropBoxData(cropBoxData).setCanvasData(canvasData);
-			}
+            // Strict mode: set crop box data first
+                // cropper.setCropBoxData(cropBoxData).setCanvasData(canvasData);
+            }
 		});
      }).on('hidden.bs.modal', function () {
      	cropBoxData = cropper.getCropBoxData();
