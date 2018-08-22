@@ -42,6 +42,11 @@ Route::get('/admin/home', 'backend\AdminController@index')->name('backend.home')
 Route::resource('/admin/users', 'backend\UsersController');
 
 Route::get('logout', '\App\Http\Controllers\Auth\LoginController@logout');
-
-
 Route::post('/uploadpic', 'PhotoController@uploadpic');
+
+Route::get('/update', 'HomeController@updateUser');
+
+Route::get('/update_info', 'HomeController@update');
+//login with facebook
+Route::get('/redirect', 'SocialAuthController@redirect');
+Route::get('/callback', 'SocialAuthController@callback');

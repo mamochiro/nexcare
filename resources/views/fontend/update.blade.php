@@ -67,23 +67,23 @@
     </div>
   </div>
 </div>
-<form class="demo-form" action="{{ route('Registers.store') }}" method="POST">
+<form class="demo-form" action="/update" method="POST">
     {{ csrf_field() }}
     <div class="form-section text-center container">
         <br>
-        <a class="my-topic" style="color: #ffffff;">REGISTER</a>
+        <a class="my-topic" style="color: #ffffff;">Update ข้อมูลของท่าน</a>
         <div class="row align-items-center justify-content-center my-3">
-            <button id="fb-login" class="btn btn-facebook col-6 d-flex align-items-center justify-content-center" type="button">
+     {{--        <button id="fb-login" class="btn btn-facebook col-6 d-flex align-items-center justify-content-center" type="button">
                 <i class="fab fa-facebook-square mr-1"></i>
                 Login ด้วย Facebook
-            </button>
+            </button> --}}
         </div>
         <div class="row">
             <div class="col-5" style="text-align: right;">
                 <label for="name" >ชื่อ-นามสกุล</label>
             </div>
             <div class="col-7">
-                <input class="form-control" type="text" id="name" value="" name="name" required="required">
+                <input class="form-control" type="text" id="name" value="{{ Auth::user()->name }}" name="name" required="required">
             </div>
             <div class="col-5">
                 <label style="" for="phone" >เบอร์ติดต่อ</label>
@@ -96,7 +96,7 @@
                 <label for="mail" >E-mail</label>
             </div>
             <div class="col-7">
-                <input class="form-control" type="mail" id="mail" value="" name="mail" required="required">
+                <input class="form-control" type="mail" id="mail" value="{{ Auth::user()->email }}" name="mail" required="required">
             </div>
             <div class="col-5">
                 <label for="child-name" >ชื่อเล่นลูก</label>

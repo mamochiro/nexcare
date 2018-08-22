@@ -34,5 +34,10 @@ return [
         'key' => env('STRIPE_KEY'),
         'secret' => env('STRIPE_SECRET'),
     ],
+    'facebook' => [
+    'client_id' => '287103768746468',
+    'client_secret' => '5b2fc925623f7a72a40dce1191a1c9b2',
+    'redirect' => 'https://www.nexventure2018.com/callback',
+    ],
 
 ];

@@ -89,4 +89,23 @@ class HomeController extends Controller
     {
         return view('fontend.result');
     }
+
+    public function updateUser()
+    {
+        return view('fontend.update');
+    }
+
+    public function update(Request $request)
+    {
+        try {
+            $data = new Users_play();
+            $data->fill($request->all());
+            $data->save();
+            $choice = $data->choice;
+            $child = $data->child_name;
+        } catch(\exception $e){
+            die($e->getMessage());
+        }
+        return redirect()->route('decorate', compact('choice', 'child'));
+    }
 }
