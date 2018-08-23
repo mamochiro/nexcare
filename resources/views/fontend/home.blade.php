@@ -12,11 +12,13 @@
 	<style>
 		body{
 		    background-image: url(images/home_bg.png) !important;
-		    width: 100%;
+			width: 100%;
+			height:100%;
 		    background-repeat: no-repeat;
 		    background-attachment: fixed;
-		    background-position: center;
 		    background-size: cover;
+			background-position: center center;
+			height: 100vh;
 		    font-family: 'db_helvethaicamon_x55_regular';
 		}
 		span{
@@ -43,7 +45,7 @@
 					</ul>
 				</div>
 			</div>
-			<div class="container text-center" style="padding-top: 50px;position: relative;">
+			<div class="container text-center" style="padding-top: 50px;height: auto;">
 				<p style="color: #3E75A2;font-size: 30px;line-height: 30px;margin-bottom: 0px;">ปิดเทอมนี้ ชวนลูก<b> ‘ปิดจอ’</b>
 					<br>ไปเจอประสบการณ์จริง กับกิจกรรม</p>
 				<img src="{{asset('images/home_logo.png')}}" alt="Microsite-Nexcare" style="width: 100%;margin-bottom: 10px;">
@@ -55,7 +57,7 @@
 				มีอะไรให้สนุก ลงมือทำ และเรียนรู้ อีกมากมาย</p>
 				<img src="{{asset('images/home_tag.png')}}" alt="home_tag" style="width: 70%;position: absolute;right: 0px;top: 400px;">
 				<a href="{{route('Reward')}}" style="background-color: transparent;">
-					<img src="{{asset('images/join.png')}}" alt="join" style="width: 30%;position: relative;top: 100px">
+					<img src="{{asset('images/join.png')}}" alt="join" style="width: 30%;position: relative;top: 120px;">
 				</a>
 				<img src="{{asset('images/home_girl.png')}}" alt="girl" style="width: 30%;position: absolute;left: 2px;top: 428px;">
 				<img src="{{asset('images/home_boy.png')}}" alt="boy" style="width: 30%;position: absolute;right: 0px;top: 458px;">

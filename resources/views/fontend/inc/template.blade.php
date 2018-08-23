@@ -11,7 +11,7 @@
 	<link rel="stylesheet" href="{{asset('css/bootstrap.min.css')}}" type="text/css" />
 	<link rel="stylesheet" href="{{asset('css/jquery.datetimepicker.css')}}" type="text/css" />
 	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.2.0/css/all.css" integrity="sha384-hWVjflwFxL6sNzntih27bfxkr27PmbbK/iSvJ+a4+0owXq79v+lsFkW54bOGbiDQ" crossorigin="anonymous">
-	<link rel="stylesheet" href="{{asset('css/app.css')}}" type="text/css" />
+	<link rel="stylesheet" href="{{asset('css/app.css')}}?v=0.0.2" type="text/css" />
 	<script src="{{ asset('js/jquery.js') }}"></script>
 	@yield('style')
 	@yield('js')	
