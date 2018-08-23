@@ -47,7 +47,7 @@ Route::post('/uploadpic', 'PhotoController@uploadpic');
 
 Route::get('/update', 'HomeController@updateUser');
 
-Route::get('/update_info', 'HomeController@update');
+Route::post('/update_info', 'HomeController@update');
 //login with facebook
 Route::get('/redirect', 'SocialAuthController@redirect');
 Route::get('/callback', 'SocialAuthController@callback');

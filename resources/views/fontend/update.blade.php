@@ -67,7 +67,7 @@
     </div>
   </div>
 </div> --}}
-<form class="demo-form" action="/update" method="POST">
+<form class="demo-form" action="/update_info" method="POST">
     {{ csrf_field() }}
     <div class="form-section text-center container">
         <br>

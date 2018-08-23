@@ -113,9 +113,10 @@ class HomeController extends Controller
             $data->save();
             $choice = $data->choice;
             $child = $data->child_name;
+            $user_id = $data->id;
         } catch(\exception $e){
             die($e->getMessage());
         }
-        return redirect()->route('decorate', compact('choice', 'child'));
+        return redirect()->route('decorate', compact('choice', 'child', 'user_id'));
     }
 }
