@@ -49,7 +49,7 @@
 				<img src="{{asset('images/home_logo.png')}}" alt="Microsite-Nexcare" style="width: 100%;margin-bottom: 10px;">
 				<p style="color: #3E75A2;font-size: 25px;line-height: 25px;margin-bottom: 10px;">ลุย เล่น ลอง เรียนรู้ สร้างประสบการณ์ 
 					<br>ใน<span style="color: #F24678;"> กิจกรรม วันเดย์ แคมป์ สัมผัสวิถีเอาท์ดอร์</span>
-					<br>ที่<span style="color: #F24678;"> ฟาร์ม เดอ เล็ก </span>และ<span style="color: #F24678;"> บ้านครูธาน </span>
+					<br>ที่<span style="color: #F24678;"> ฟาร์ม เดอ เล็ก </span>และ<span style="color: #F24678;"> บ้านครูธานี </span>
 				</p>
 				<p style="color: #3E75A2;font-size: 30px;line-height: 30px;margin-bottom: 0px;">แล้วจะรู้ว่า<b>โลกนอกจอ</b><br>
 				มีอะไรให้สนุก ลงมือทำ และเรียนรู้ อีกมากมาย</p>
