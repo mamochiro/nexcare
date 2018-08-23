@@ -38,9 +38,9 @@ Route::get('/admin', function () {
 
 Auth::routes();
 // home
-Route::get('/admin/home', 'backend\AdminController@index')->name('backend.home');
-// user play
-Route::resource('/admin/users', 'backend\UsersController');
+// Route::get('/admin/home', 'backend\AdminController@index')->name('backend.home');
+// // user play
+// Route::resource('/admin/users', 'backend\UsersController');
 
 Route::get('logout', '\App\Http\Controllers\Auth\LoginController@logout');
 Route::post('/uploadpic', 'PhotoController@uploadpic');
@@ -51,3 +51,12 @@ Route::get('/update_info', 'HomeController@update');
 //login with facebook
 Route::get('/redirect', 'SocialAuthController@redirect');
 Route::get('/callback', 'SocialAuthController@callback');
+
+Route::group(['prefix' => 'admin'], function() {
+
+	Route::get('/dashboard','AdminController@index')->name('admin.dashboard');
+	Route::get('/','Admin\LoginController@showLoginForm')->name('admin.login');
+	Route::post('/','Admin\LoginController@login');
+	Route::resource('/content','BackOffice\ContentController');
+});
+Route::post('/logout', 'AdminController@logout')->name('admin.logout');
