@@ -3,7 +3,7 @@
 <head>
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-	<meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests">
+	<!-- <meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests"> -->
 	<title>Microsite-Nexcare</title>
 	<!-- Fonts -->
 	<link rel="stylesheet" href="{{asset('fonts/stylesheet.css')}}" type="text/css" />
@@ -18,7 +18,8 @@
 </head>
 
 <body>
-		<div id="header" class="d-lg-none">
+	<div class="wrapper">		
+		<div id="header" class="">
 				<div id="sidebar" style="z-index: 2">
 					<div class="toggle-btn" onclick="toggleSidebar()">
 						<span></span>
@@ -39,21 +40,22 @@
 					<img src="{{asset('images/logo.png')}}" alt="header" style="width: 100%;height: auto;">
 				</div>
 		</div>
-		<div id="tmp"  class="d-lg-none" style="background-image: url({{ asset('images/main_bg.png') }});">
+		<div id="tmp"  class="" style="background-image: url({{ asset('images/main_bg.png') }});">
 			@yield('content')			
 		</div>
-		<div id="footer" class="d-lg-none">
+		<div id="footer" class="">
 			<img src="{{asset('images/footer_nexcare.png')}}" alt="footer" style="width: 100%;height: auto;">	
 		</div>
+	</div>
 
 
 
 	<!-- PC mode -->
-	<div class="d-none d-lg-block">
+	<!-- <div class="d-none d-lg-block">
 		<div class="text-center pc">
 			<h1>รองรับเฉพาะ mobile นะ</h1>
 		</div>
-	</div>
+	</div> -->
 	<!-- script -->
 	<script src="https://www.ninenik.com/js/jquery.datetimepicker.full.js"></script>
 	<script src="{{ asset('js/script.js') }}?v=0.0.1"></script>
