@@ -7,6 +7,25 @@ $(document).ready(function() {
 		$('input:not(:checked)').parent().removeClass('boxShadow')
 		$(this).addClass('boxShadow')
 	})
+
+    $('#register-btn').click(function(e) {
+        e.preventDefault()
+        if($('input[name="choice"]:checked').val() == undefined) {
+            swal({
+                title : "เดียวก่อน!", 
+                text : "คุณยังไม่ได้เลือกรายการ", 
+                icon : "error",
+                timer: 2000,
+                button : false,
+            });
+        } else {
+            $('#form-register').submit()
+        }
+    })
+
+
+
+
 	$.datetimepicker.setLocale('th');
 	// กรณีใช้แบบ input
     $("#date").datetimepicker({
