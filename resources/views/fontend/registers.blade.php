@@ -2,6 +2,7 @@
 @section('js')
 <!-- <script src="{{ asset('js/bootstrap-datepicker-thai.js') }}"></script> -->
 <script src="{{ asset('js/jquery.js') }}"></script>
+<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
 <link rel="stylesheet" type="text/css" href="https://code.jquery.com/ui/1.12.0/themes/smoothness/jquery-ui.css">
      <script type="text/javascript">
         $( document ).ready(function() {
@@ -75,7 +76,7 @@
     </div>
   </div>
 </div>
-<form class="demo-form" action="{{ route('Registers.store') }}" method="POST">
+<form id="form-register" class="demo-form" action="{{ route('Registers.store') }}" method="POST">
     {{ csrf_field() }}
     <div class="form-section text-center container">
         <br>
@@ -278,7 +279,7 @@
         <p style="font-size: 40px;color: #001588;">คุณเป็น<b style="font-size: 55px">พ่อแม่แบบไหน</b> ?</p>
         <div class="row">
             <div class="col-6 pr-2 mb-3 choice-button border-light">
-                    <label style="line-height: 22px; background-color: #80C950; height: 100%; border-radius: 10px;" class="p-3">
+                    <label style="line-height: 22px; width: 100%; background-color: #80C950; height: 100%; border-radius: 10px;" class="p-3">
                         <input type="radio" name="choice" value="1" class="d-none">
                         อยากให้ลูกเรียนรู้<br>
                         แต่<b>ไม่อยากให้อยู่ห่างสายตา</b><br>
@@ -286,7 +287,7 @@
                     </label>
             </div>
             <div class="col-6 pl-2 mb-3 choice-button border-light">           
-                    <label style="line-height: 22px; background-color: #F99030; height: 100%; border-radius: 10px;" class="p-3">
+                    <label style="line-height: 22px; width: 100%; background-color: #F99030; height: 100%; border-radius: 10px;" class="p-3">
                         <input type="radio" name="choice" value="2" class="d-none">
                         <b>ชอบชวนลูกผจญภัย</b><br>
                         สนุกเรียนรู้ไปด้วยกัน<br>
@@ -294,7 +295,7 @@
                     </label>
             </div>
             <div class="col-6 pr-2 choice-button border-light">
-                    <label style="line-height: 22px; background-color: #367ADD; height: 100%; border-radius: 10px;" class="p-3">
+                    <label style="line-height: 22px; width: 100%; background-color: #367ADD; height: 100%; border-radius: 10px;" class="p-3">
                         <input type="radio" name="choice" value="3" class="d-none">
                         อยากให้ลูกออกไปเรียนรู้<br>
                         แต่ต้อง<b>มั่นใจว่าปลอดภัย</b><br>
@@ -302,7 +303,7 @@
                     </label>
             </div>
             <div class="col-6 pl-2 choice-button border-light">
-                    <label style="line-height: 22px; background-color: #1CB0C4; height: 100%; border-radius: 10px;" class="p-3">
+                    <label style="line-height: 22px; width: 100%; background-color: #1CB0C4; height: 100%; border-radius: 10px;" class="p-3">
                         <input type="radio" name="choice" value="4" class="d-none">
                         พร้อมให้ลูกลุย<br>
                         <b>ล้มบ้าง เลอะบ้าง เจ็บบ้าง</b><br>
@@ -316,7 +317,7 @@
 
     <div class="form-navigation text-center" style="padding-top: 10px">
         <button type="button" class="next my-btn-register btn-custom">ตกลง</button>
-        <input type="submit" class="my-btn btn-custom" value="ตกลง">
+        <input type="submit" class="my-btn btn-custom" value="ตกลง" id="register-btn">
         <span class="clearfix"></span>
     </div>
 </form>
