@@ -10,7 +10,7 @@
 	<img src="{{asset('images/protect.png')}}" alt="frame" style="width: 90%;">
 	@endif
 	<br><br>
-	<p1 style="line-height: 0.1">อย่าลืม<b style="font-size: 29px">กดแชร์รูปไปที่เฟซบุ๊กตัวเอง</b><br>ตั้งค่าเป็นสาธารณะ พร้อมติด<br><span>#Nexcare(TM)  #NexcareThailand(TM)  #thenexventurebynexcare #ลูกแกร่งแน่แค่กล้าปล่อย</span></p1>
+	<p1 style="line-height: 0.1">อย่าลืม<b style="font-size: 29px">กดแชร์รูปไปที่เฟซบุ๊กตัวเอง</b><br>ตั้งค่าเป็นสาธารณะ พร้อมติด<br><span>#Nexcare  #NexcareThailand  #thenexventurebynexcare #ลูกแกร่งแน่แค่กล้าปล่อย</span></p1>
 	<br>
 	<img src="{{asset('images/share.png')}}" alt="share" id='shareBtn'>
 </div>
@@ -56,7 +56,7 @@
             })
             }, function(response){
                 console.log(response);
-                // window.location.href = "/";
+                window.location.href = "/gallery";
             });
 
         });
