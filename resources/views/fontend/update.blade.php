@@ -1,13 +1,31 @@
 @extends('fontend.inc.template')
 
 @section('js')
-     <script type="text/javascript">
+  <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+  <script src="{{ asset('js/datepicker-th.js') }}"></script>
+  <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+  {{-- <link rel="stylesheet" href="/resources/demos/style.css"> --}}
+  <script type="text/javascript">
         $( document ).ready(function() {
             $( "#fb-login" ).click(function() {
                 window.location.href = "/redirect";
             });
-        });
-        
+        $.datepicker.setDefaults( $.datepicker.regional[ "th" ] );
+        var currentDate = new Date();
+
+        currentDate.setYear(currentDate.getFullYear() + 543);
+          // Birth date
+          $("#date-of-birth").datepicker({
+            changeMonth: true,
+            changeYear: true,
+            yearRange: '+443:+543',
+            dateFormat: 'dd/mm/yy',
+            onSelect: function(date) {
+              $("#edit-date-of-birth").addClass('filled');
+            }
+          });
+        $('#date-of-birth').datepicker("setDate",currentDate );
+                });                
     </script>
 @endsection
 
@@ -79,7 +97,7 @@
             </button> --}}
         </div>
         <div class="row">
-            <div class="col-5" style="text-align: right;">
+            <div class="col-5" style="text-align: center;">
                 <label for="name" >ชื่อ-นามสกุล</label>
             </div>
             <div class="col-7">
@@ -108,8 +126,36 @@
                 <label for="date" >วันเกิดลูก</label>
             </div>
             <div class="col-7">
-                <input class="form-control" type="text" name="child_date" id="date" required="required">
-                <!-- <input class="form-control" type="date" name="child_date" required="required"> -->
+                {{-- <input type="text" name="child_date"  class="form-control"  id="date-of-birth" required="required"> --}}
+                <div class="form-row"> 
+                    <div class="col-4">
+                        <select class="form-control" name="day" placeholder="วันที่" required="required">
+                        <option value="" disabled="disabled" selected="">วันที่</option>
+                            @for($i = 1; $i <= 31; $i++)
+                             <option value="{{ $i }}">{{ $i }}</option>
+                            @endfor
+                        </select>
+                    </div>
+                    <div class="col-4">
+                        <select class="form-control" name="month" placeholder="เดือน" required="required">
+                        <option value="" disabled="disabled" selected="">เดือน</option>
+                        @php
+                        $Month = ['ม.ค.' , 'ก.พ.' , 'มี.ค.' ,'เม.ย.' , 'พ.ค.','มิ.ย.' , 'ก.ค.','ส.ค.' ,'ก.ย.' ,'ต.ค' ,'พ.ย.', 'ธ.ค.']
+                        @endphp
+                            @for($i = 1; $i <= 12; $i++)
+                             <option value="{{ $i }}">{{ $Month [$i- 1]}}</option>
+                            @endfor
+                        </select>
+                    </div> 
+                    <div class="col-4">   
+                         <select class="form-control" name="year" placeholder="วันที่" required="required">
+                        <option value="" disabled="disabled" selected="">ปี</option>
+                            @for($i = 2561; $i >= 2545; $i--)
+                             <option value="{{ $i }}">{{ $i }}</option>
+                            @endfor
+                        </select>
+                    </div> 
+                </div>
             </div>
             <div class="col-5">
                 <label for="address" >ที่อยู่</label>
@@ -224,8 +270,8 @@
             <div class="col-7">
                 {{-- <input class="form-control" type="text" id="date_join" name="join_date" value="" required="required"> --}}
                 <select class="form-control" id="date_join" name="join_date" required="required">
-                    <option value="2018-10-20">เสาร์ 20 ตุลาคม</option>
-                    <option value="2018-10-27">เสาร์ 27 ตุลาคม</option>
+                    <option value="2018-10-20">เสาร์ 20 ต.ค. บ้านครูธานี</option>
+                    <option value="2018-10-27">เสาร์ 27 ต.ค. Farm de Lek</option>
                 </select>
             </div>
             <div class="col-6">

@@ -1,4 +1,45 @@
 @extends('fontend.inc.template')
+@section('js')
+<script>
+  window.fbAsyncInit = function() {
+    FB.init({
+      appId            : '287103768746468',
+      autoLogAppEvents : true,
+      xfbml            : true,
+      version          : 'v3.0'
+    });
+  };
+
+  (function(d, s, id){
+     var js, fjs = d.getElementsByTagName(s)[0];
+     if (d.getElementById(id)) {return;}
+     js = d.createElement(s); js.id = id;
+     js.src = "https://connect.facebook.net/en_US/sdk.js";
+     fjs.parentNode.insertBefore(js, fjs);
+   }(document, 'script', 'facebook-jssdk'));
+</script>
+
+<script>
+ 	function share($name){
+ 		FB.ui({
+            method: 'share',
+            mobile_iframe: false,
+            // hashtag : "#nexventure2018",
+            href: 'https://www.nexventure2018.com/share/'+$name,
+            // description: 'your_description',
+            action_properties: JSON.stringify({
+              object: {
+                'og:description': 'อวยพรวันแม่',
+                'og:image': 'http://www.nexventure2018.com/imgs/'+$name,
+              }
+            })
+            }, function(response){
+                console.log(response);
+                window.location.href = "/gallery";
+            });
+ 	}
+</script>
+@endsection
 @section('content')
 <style>
 	*{
@@ -37,7 +78,7 @@
 						<p class="mb-0 pl-4 text-left" style="font-size: 24px;">น้อง {{ $u->child_name }}</p>				
 					</div>
 					<div class="col-6">
-						<img src="{{ asset('images/share.png') }}" alt="share" style="width: 60%">
+						<img src="{{ asset('images/share.png') }}" id='shareBtn' alt="share" style="width: 60%" onclick="share('{{ $u->image->image }}')">
 					</div>
 				</div>
 				@endif

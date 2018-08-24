@@ -9,8 +9,8 @@
 	<meta property="og:url" content="http://www.nexventure2018.com/images/imgs/{{$imageForShare}}" />
 	<meta property="fb:app_id" content="287103768746468" />
 	<meta property="og:type" content="website" />
-	<meta property="og:title" content="nexventure2018" />
-	<meta property="og:description" content="nexventure2018" />
+	<meta property="og:title" content="Nexventure2018 ครอบครัวผจญภัย" />
+	<meta property="og:description" content="Nexventure2018 ครอบครัวผจญภัย" />
 	<meta property="og:image" content="http://www.nexventure2018.com/images/imgs/{{$imageForShare}}" />
 </head>
 

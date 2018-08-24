@@ -9,7 +9,7 @@
 	<link rel="stylesheet" href="{{asset('fonts/stylesheet.css')}}" type="text/css" />
 	<!-- Stylesheets -->
 	<link rel="stylesheet" href="{{asset('css/bootstrap.min.css')}}" type="text/css" />
-	<link rel="stylesheet" href="{{asset('css/jquery.datetimepicker.css')}}" type="text/css" />
+	<link rel="stylesheet" href="{{asset('css/jquery.datetimepicker2.css')}}" type="text/css" />
 	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.2.0/css/all.css" integrity="sha384-hWVjflwFxL6sNzntih27bfxkr27PmbbK/iSvJ+a4+0owXq79v+lsFkW54bOGbiDQ" crossorigin="anonymous">
 	<link rel="stylesheet" href="{{asset('css/app.css')}}?v=0.0.2" type="text/css" />
 	<script src="{{ asset('js/jquery.js') }}"></script>
@@ -79,7 +79,6 @@
 	<script>
 	    $(function () {
 	        var $sections = $('.form-section');
-
 	      function navigateTo(index) {
 	        // Mark the current section with the class 'current'
 	        $sections
@@ -92,23 +91,19 @@
 	        $('.form-navigation .next').toggle(!atTheEnd);
 	        $('.form-navigation [type=submit]').toggle(atTheEnd);
 	      }
-
 	      function curIndex() {
 	        // Return the current index by looking at which section has the class 'current'
 	        return $sections.index($sections.filter('.current'));
 	      }
-
 	      // Previous button is easy, just go back
 	      $('.form-navigation .previous').click(function() {
 	        navigateTo(curIndex() - 1);
 	      });
-
 	      // Next button goes forward iff current block validates
 	      $('.form-navigation .next').click(function() {
 	        if ($('.demo-form').parsley().validate({group: 'block-' + curIndex()}))
 	          navigateTo(curIndex() + 1);
 	      });
-
 	      // Prepare sections by setting the `data-parsley-group` attribute to 'block-0', 'block-1', etc.
 	      $sections.each(function(index, section) {
 	        $(section).find(':input').attr('data-parsley-group', 'block-' + index);

@@ -32,9 +32,22 @@ class HomeController extends Controller
     public function store(Request $request)
     {
         try {
+            // dd($request->day);
+            $child_date = $request->day . '-' . $request->month . '-' . $request->year ; 
 
             $data = new Users_play();
-            $data->fill($request->all());
+            // $data->fill($request->all());
+            $data->name = $request->name;
+            $data->phone = $request->phone;
+            $data->mail = $request->mail;
+            $data->child_name = $request->child_name;
+            $data->child_date = $child_date;
+            $data->address = $request->address;
+            $data->post_code=$request->post_code;
+            $data->province = $request->province;
+            $data->join_date = $request->join_date;
+            $data->choice = $request->choice;
+    
             // $data->user_id = Null;
             $data->save();
             $choice = $data->choice;
@@ -68,7 +81,8 @@ class HomeController extends Controller
                             ->when(!empty($q), function($query) use ($q) {
                                 return $query->where('child_name', 'LIKE', '%' . $q . '%');
                             })
-                            ->paginate(10);
+                            ->orderBy('created_at', 'DESC')
+                            ->paginate(30);
 
         $uses = Users_play::all();                 
         return view('fontend.gallery', compact('users') );
@@ -107,9 +121,24 @@ class HomeController extends Controller
     public function update(Request $request)
     {
         try {
+            //dd($request->day);
+            $child_date = $request->day . '-' . $request->month . '-' . $request->year ; 
+
             $data = new Users_play();
-            $data->fill($request->all());
-            // $data->user_id = Auth::id();
+            // $data->fill($request->all());
+            $data->name = $request->name;
+            $data->phone = $request->phone;
+            $data->mail = $request->mail;
+            $data->child_name = $request->child_name;
+            $data->child_date = $child_date;
+            $data->address = $request->address;
+            $data->post_code=$request->post_code;
+            $data->province = $request->province;
+            $data->join_date = $request->join_date;
+            $data->choice = $request->choice;
+    
+            // $data->user_id = Null;
+            $data->save();
             $data->save();
             $choice = $data->choice;
             $child = $data->child_name;
