@@ -20,7 +20,7 @@ class ContentController extends Controller
     public function index()
     {   
         $data = Content::OrderBy('created_at','desc')->get();
-        return view('backOffice.content.index',compact('data'));
+        return view('backoffice.content.index',compact('data'));
     }
 
     /**
@@ -31,7 +31,7 @@ class ContentController extends Controller
     public function create()
     {
 
-        return view('backOffice.content.create');
+        return view('backoffice.content.create');
     }
 
     /**
@@ -69,7 +69,7 @@ class ContentController extends Controller
     public function edit($id)
     {
         $content = Content::find($id);
-        return view('backOffice.content.edit',compact('content'));
+        return view('backoffice.content.edit',compact('content'));
     }
 
     /**
