@@ -29,6 +29,7 @@ Route::get('/gallery', 'HomeController@gallery')->name('Gallery');
 // Route::post('/gallery', 'HomeController@gallery')->name('Gallery');
 
 Route::get('/content', 'HomeController@content')->name('Content');
+Route::get('/content/{id}', 'HomeController@contentShow')->name('Content.show');
 
 Route::get('/result', 'HomeController@result')->name('Result');
 // Backend

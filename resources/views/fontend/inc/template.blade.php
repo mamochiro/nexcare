@@ -4,14 +4,15 @@
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 	<!-- <meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests"> -->
-	<title>Microsite-Nexcare</title>
+	<title>The Nexventure</title>
+	<meta name="description" content="ลุย เล่น ลอง เรียนรู้ สร้างประสบการณ์">
 	<!-- Fonts -->
 	<link rel="stylesheet" href="{{asset('fonts/stylesheet.css')}}" type="text/css" />
 	<!-- Stylesheets -->
 	<link rel="stylesheet" href="{{asset('css/bootstrap.min.css')}}" type="text/css" />
 	<link rel="stylesheet" href="{{asset('css/jquery.datetimepicker2.css')}}" type="text/css" />
 	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.2.0/css/all.css" integrity="sha384-hWVjflwFxL6sNzntih27bfxkr27PmbbK/iSvJ+a4+0owXq79v+lsFkW54bOGbiDQ" crossorigin="anonymous">
-	<link rel="stylesheet" href="{{asset('css/app.css')}}?v=0.0.2" type="text/css" />
+	<link rel="stylesheet" href="{{asset('css/app.css')}}?v=0.0.3" type="text/css" />
 	<script src="{{ asset('js/jquery.js') }}"></script>
 	@yield('style')
 	@yield('js')	
