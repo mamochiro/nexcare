@@ -15,12 +15,12 @@
 /* IMPORTANT!!! Do not comment or remove uncommented settings in this file
    even if you are using session configuration.
    See http://kcfinder.sunhater.com/install for setting descriptions */
-session_start();
-if ($_SESSION['ckfinder_auth'] == 1) {
+// session_start();
+// if ($_SESSION['ckfinder_auth'] == 1) {
 
-}else{
-    throw new Exception("Error Processing Request", 1);
-}
+// }else{
+//     throw new Exception("Error Processing Request", 1);
+// }
 $_CONFIG = array(
 
 // GENERAL SETTINGS

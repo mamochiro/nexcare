@@ -67,15 +67,15 @@
                         <!-- Profile -->
                         <!-- ============================================================== -->
                         <li class="nav-item dropdown u-pro">
-                            <a class="nav-link dropdown-toggle waves-effect profile-pic" href="" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><span class="hidden-md-down">{{ Auth::user()->name }} &nbsp;<i class="fa fa-angle-down"></i></span> </a>
+                           {{--  <a class="nav-link dropdown-toggle waves-effect profile-pic" href="" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><span class="hidden-md-down">{{ Auth::user()->name }} &nbsp;<i class="fa fa-angle-down"></i></span> </a> --}}
                             <div class="dropdown-menu dropdown-menu-right animated flipInY">
                                 <ul class="dropdown-user">
                                     <li>
-                                        <div class="dw-user-box">
+                                        {{-- <div class="dw-user-box">
                                             <div class="u-text">
                                                 <h4>{{ Auth::user()->name }}</h4>
                                                 <p class="text-muted">workmotion@gmail.com</p></div>
-                                        </div>
+                                        </div> --}}
                                     </li>
                                     <li role="separator" class="divider"></li>
                            <!--          <li><a href="#"><i class="ti-user"></i> My Profile</a></li>
@@ -260,6 +260,7 @@
 
 }
 </script>
+<script src="'https://nexventure2018.com/templateEditor/ckeditor/ckeditor.js"></script>
     @yield('js')
 </body>
 

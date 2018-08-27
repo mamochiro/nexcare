@@ -37,6 +37,14 @@
                 <div class="tab-content tabcontent-border">
                     <div class="tab-pane active" id="home8" role="tabpanel">
                         <div class="p-20"> 
+                             <div class="form-group">
+                                <div>
+                                    <label for="">Image <code><small>(1366 * 500)</small></code></label>
+                                </div>
+                                <div class="controls">
+                                    <input type="file" name="img" class="dropify" data-height="300" data-default-file="{{ asset("uploads/$content->img") }}">
+                                </div>
+                            </div> 
                         	<div class="form-group">
                                 <div>
                                     <label for="">Title</label>
@@ -65,10 +73,18 @@
 
 @endsection
 @section('js')
-<script src=" {{asset('templateEditor/ckeditor/ckeditor.js')}}"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.6-rc.0/js/select2.min.js"></script>
 <script type="text/javascript">
-    try{CKEDITOR.replace('editor1')}catch{}  
+       try{  
+        CKEDITOR.replace( 'editor1', {
+        filebrowserBrowseUrl: '{{ asset('ckfinder/ckfinder.html') }}',
+        filebrowserImageBrowseUrl: '{{ asset('ckfinder/ckfinder.html?type=Images') }}',
+        filebrowserFlashBrowseUrl: '{{ asset('ckfinder/ckfinder.html?type=Flash') }}',
+        filebrowserUploadUrl: '{{ asset('ckfinder/core/connector/php/connector.php?command=QuickUpload&type=Files') }}',
+        filebrowserImageUploadUrl: '{{ asset('ckfinder/core/connector/php/connector.php?command=QuickUpload&type=Images') }}',
+        filebrowserFlashUploadUrl: '{{ asset('ckfinder/core/connector/php/connector.php?command=QuickUpload&type=Flash') }}'
+} );
+  }catch{} 
 </script> 
 
 @endsection
