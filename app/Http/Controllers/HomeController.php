@@ -105,6 +105,11 @@ class HomeController extends Controller
         // dd(count($contents));
         return view('fontend.content' , ['contents' => $contents]);
     }
+
+    public function contentShow(Content $id)
+    {
+        return view('fontend.content-list', ['content' => $id]);
+    }
     
     public function result()
     {
