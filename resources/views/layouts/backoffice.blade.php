@@ -182,9 +182,6 @@
                     <ul id="sidebarnav">
                         <li class="nav-small-cap">--- MENU</li>
                         <li>
-                            <a class="waves-effect waves-dark" href="{{ route('admin.dashboard') }}" aria-expanded="false"><i class="mdi mdi-creation"></i><span class="hide-menu">DashBoard</span></a>
-                        </li>
-                        <li>
                             <a class="waves-effect waves-dark" href="{{ route('content.index') }}" aria-expanded="false"><i class="mdi mdi-creation"></i><span class="hide-menu">Content</span></a>
                         </li>
                     </ul>
