@@ -32,7 +32,7 @@
                         <tr>
                             <th>No.</th>
                             <th>Title</th>
-                            <th>Content</th>
+                            <{{-- th>Content</th> --}}
                             <th>Created_at</th>
                             <th>Action</th>
                         </tr>
@@ -42,7 +42,7 @@
                         <tr>
                             <td>{{$loop->index+1}}</td>
                             <td>{{ $item->title }}</td>
-                            <td>{!! $item->content !!}</td>
+                            {{-- <td>{!! $item->content !!}</td> --}}
                             <td>{!! $item->created_at !!}</td>
                             <td class="d-flex">
                                 <a href="{{ route('content.edit',$item->id) }}" class="btn btn-sm btn-warning btn-circle m-r-10"><i class="fa fa-pencil"></i></a>

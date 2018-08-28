@@ -79,6 +79,7 @@ class ContentController extends Controller
     public function edit($id)
     {
         $content = Content::find($id);
+        
         return view('backoffice.content.edit',compact('content'));
     }
 

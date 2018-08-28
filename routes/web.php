@@ -60,4 +60,6 @@ Route::group(['prefix' => 'admin'], function() {
 	Route::post('/','Admin\LoginController@login');
 	Route::resource('/content','BackOffice\ContentController');
 });
+
+Route::get('/search','AdminController@search');
 Route::post('/logout', 'AdminController@logout')->name('admin.logout');
