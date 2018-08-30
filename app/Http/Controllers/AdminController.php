@@ -49,6 +49,12 @@ class AdminController extends Controller
             ]);
     }
 
+    public function export()
+    {   
+        return view('admin.export');
+    }
+
+
     public function search(Request $request)
     {   
     if($request->search !== null){
@@ -77,8 +83,8 @@ class AdminController extends Controller
                         '<td>'.$user->name.'</td>'.                       
                         '<td>'.$user->phone.'</td>'.                     
                         '<td>'.$user->mail.'</td>'.
-                        '<td>'.$user->child_name.'</td>'.
-                        // '<td>'.$user->child_date.'</td>'. 
+                        // '<td>'.$user->child_name.'</td>'.
+                        '<td>'.$user->child_date.'</td>'. 
                         '<td>'.$user->province.'</td>'. 
                         '<td>'.$user->join_date.'</td>'. 
                         '<td>'.$user->choice.'</td>'.  
@@ -113,8 +119,8 @@ class AdminController extends Controller
                         '<td>'.$user->name.'</td>'.                       
                         '<td>'.$user->phone.'</td>'.                     
                         '<td>'.$user->mail.'</td>'.
-                        '<td>'.$user->child_name.'</td>'.
-                        // '<td>'.$user->child_date.'</td>'. 
+                        // '<td>'.$user->child_name.'</td>'.
+                        '<td>'.$user->child_date.'</td>'. 
                         '<td>'.$user->province.'</td>'. 
                         '<td>'.$user->join_date.'</td>'. 
                         '<td>'.$user->choice.'</td>'.  

@@ -187,6 +187,9 @@
                         <li>
                             <a class="waves-effect waves-dark" href="{{ route('content.index') }}" aria-expanded="false"><i class="mdi mdi-creation"></i><span class="hide-menu">Content</span></a>
                         </li>
+                         <li>
+                            <a class="waves-effect waves-dark" href="{{ route('admin.exports') }}" aria-expanded="false"><i class="mdi mdi-creation"></i><span class="hide-menu">Export</span></a>
+                        </li>
                     </ul>
                 </nav>
                 <!-- End Sidebar navigation -->

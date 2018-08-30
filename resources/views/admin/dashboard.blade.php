@@ -100,7 +100,7 @@
       <th scope="col">โทรศัพท์</th>
       <th scope="col">อีเมลล์</th>
       {{-- <th scope="col">ชื่อของลูก</th> --}}
-      {{-- <th scope="col">วันเกิดของลูก</th> --}}
+      <th scope="col">วันเกิดของลูก</th>
       {{-- <th scope="col">ที่อยู่</th> --}}
       <th scope="col">จังหวัด</th>
       <th scope="col">วันที่ลงทะเบียน</th>
@@ -118,7 +118,7 @@
       <td>{{ $user->phone }}</td>
       <td>{{ $user->mail }}</td>
       {{-- <td>{{ $user->child_name }}</td> --}}
-      {{-- <td>{{ $user->child_date }}</td> --}}
+      <td>{{ $user->child_date }}</td>
       {{--  <td>{{ $user->address }}</td> --}}
       <td>{{ $user->province }}</td>
       <td>{{ Carbon\Carbon::parse($user->created_at)->format('d-m-Y ') }}</td>

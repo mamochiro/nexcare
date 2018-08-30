@@ -58,10 +58,17 @@ Route::group(['prefix' => 'admin'], function() {
 	Route::get('/dashboard','AdminController@index')->name('admin.dashboard');
 	Route::get('/','Admin\LoginController@showLoginForm')->name('admin.login');
 	Route::post('/','Admin\LoginController@login');
+	Route::get('/exports','AdminController@export')->name('admin.exports');
 	Route::resource('/content','BackOffice\ContentController');
 });
 
+//adminpage
 Route::get('/search','AdminController@search');
 Route::post('/deleteUser', 'PhotoController@deleteUser');
+
+
+//export excel 
+Route::get('/exportUser', 'ExportController@exportUser');
+Route::get('/exportPhoto', 'ExportController@exportPhoto');
 
 Route::post('/logout', 'AdminController@logout')->name('admin.logout');
