@@ -66,17 +66,17 @@ class RegisterController extends Controller
         return User::create([
             'name' => $data['name'],
             'email' => $data['email'],
-            // 'password' => Hash::make($data['password']),
-            'password' => md5(rand(1,10000)),
-            'phone' => $data['phone'],
-            'child_name' => $data['child_name'],
-            'child_date' => $data['child_date'],
-            'province' => $data['province'],
-            'post_code' => $data['post_code'],
-            'address' => $data['address'],
-            'post_code' => $data['post_code'],
-            'join_date' => $data['join_date'],
-            'choice' => $data['choice'],
+            'password' => Hash::make($data['password']),
+            // 'password' => md5(rand(1,10000)),
+            // 'phone' => $data['phone'],
+            // 'child_name' => $data['child_name'],
+            // 'child_date' => $data['child_date'],
+            // 'province' => $data['province'],
+            // 'post_code' => $data['post_code'],
+            // 'address' => $data['address'],
+            // 'post_code' => $data['post_code'],
+            // 'join_date' => $data['join_date'],
+            // 'choice' => $data['choice'],
         ]);
     }
 
@@ -85,7 +85,7 @@ class RegisterController extends Controller
         $this->validate(request(), [
             'name' => 'required',
             'email' => 'required|email',
-            // 'password' => 'required'
+            'password' => 'required'
         ]);
         
         
