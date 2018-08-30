@@ -1,8 +1,8 @@
 @extends('layouts.backoffice')
 <style type="text/css">
     h6.card-subtitle.mb-2.text-muted{
-    color: #212529 !important;
-}
+        color: #212529 !important;
+    }
 </style>
 @section('content')
 <div class="container">
@@ -26,8 +26,8 @@
         <p class="card-text">{{ $photosCount }} ภาพ</p>
        <!--  <a href="#" class="card-link">Card link</a>
        <a href="#" class="card-link">Another link</a> -->
-        </div>
-    </div>
+   </div>
+</div>
 </div>
 </div>
 </div>
@@ -37,9 +37,9 @@
             <div class="card-body">
                 <h5 class="card-title" style="color:#fff;">มีผู้ที่เลือกพ่อแม่ในแบบที่ 1 </h5>
                 <h6 class="card-subtitle mb-2 text-muted" style="color:#fff;">อยากให้ลูกเรียนรู้
-                        แต่ไม่อยากให้อยู่ห่างสายตา
-                        ลูกทำอะไร ต้องอยู่ด้วยเสมอ</h6>
-                <p class="card-text" style="color:#fff;">{{ $choice1 }}  ท่าน</p>
+                    แต่ไม่อยากให้อยู่ห่างสายตา
+                    ลูกทำอะไร ต้องอยู่ด้วยเสมอ</h6>
+                    <p class="card-text" style="color:#fff;">{{ $choice1 }}  ท่าน</p>
                 <!--  <a href="#" class="card-link">Card link</a>
                 <a href="#" class="card-link">Another link</a> -->
             </div>
@@ -50,9 +50,9 @@
             <div class="card-body">
                 <h5 class="card-title" style="color:#fff;">มีผู้ที่เลือกพ่อแม่ในแบบที่ 2</h5>
                 <h6 class="card-subtitle mb-2 text-muted" style="color:#fff;">ชอบชวนลูกผจญภัย
-                        สนุกเรียนรู้ไปด้วยกัน
-                        ลุยทำกิจกรรมทุกที่
-                        </h6>
+                    สนุกเรียนรู้ไปด้วยกัน
+                    ลุยทำกิจกรรมทุกที่
+                </h6>
                 <p class="card-text" style="color:#fff;">{{ $choice2 }} ท่าน</p>
                 <!--  <a href="#" class="card-link">Card link</a>
                 <a href="#" class="card-link">Another link</a> -->
@@ -64,9 +64,9 @@
             <div class="card-body">
                 <h5 class="card-title" style="color:#fff;">มีผู้ที่เลือกพ่อแม่ในแบบที่ 3</h5>
                 <h6 class="card-subtitle mb-2 text-muted" style="color:#fff;">
-                        อยากให้ลูกออกไปเรียนรู้
-                        แต่ต้องมั่นใจว่าปลอดภัย
-                        เครื่องป้องกันแน่น
+                    อยากให้ลูกออกไปเรียนรู้
+                    แต่ต้องมั่นใจว่าปลอดภัย
+                    เครื่องป้องกันแน่น
                 </h6>
                 <p class="card-text" style="color:#fff;">{{ $choice3 }} ท่าน</p>
                 <!--  <a href="#" class="card-link">Card link</a>
@@ -79,9 +79,9 @@
             <div class="card-body">
                 <h5 class="card-title" style="color:#fff;">มีผู้ที่เลือกพ่อแม่ในแบบที่ 4</h5>
                 <h6 class="card-subtitle mb-2 text-muted" style="color:#fff;">พร้อมให้ลูกลุย
-                        ล้มบ้าง เลอะบ้าง เจ็บบ้าง
-                        ไม่เป็นไร อย่างน้อยก็ได้เรียนรู้</h6>
-                <p class="card-text" style="color:#fff;">{{ $choice4 }} ท่าน</p>
+                    ล้มบ้าง เลอะบ้าง เจ็บบ้าง
+                    ไม่เป็นไร อย่างน้อยก็ได้เรียนรู้</h6>
+                    <p class="card-text" style="color:#fff;">{{ $choice4 }} ท่าน</p>
                 <!--  <a href="#" class="card-link">Card link</a>
                 <a href="#" class="card-link">Another link</a> -->
             </div>
@@ -99,13 +99,15 @@
       <th scope="col">ชื่อ</th>
       <th scope="col">โทรศัพท์</th>
       <th scope="col">อีเมลล์</th>
-      <th scope="col">ชื่อของลูก</th>
-      <th scope="col">วันเกิดของลูก</th>
+      {{-- <th scope="col">ชื่อของลูก</th> --}}
+      {{-- <th scope="col">วันเกิดของลูก</th> --}}
       {{-- <th scope="col">ที่อยู่</th> --}}
       <th scope="col">จังหวัด</th>
+      <th scope="col">วันที่ลงทะเบียน</th>
       <th scope="col">วันที่เข้าร่วม</th>
       <th scope="col">หัวข้อที่เลือก</th>
       <th scope="col">รูปภาพ</th>
+      <th scope="col">action</th>
   </tr>
 </thead>
 <tbody>
@@ -115,11 +117,12 @@
       <td>{{ $user->name }}</td>
       <td>{{ $user->phone }}</td>
       <td>{{ $user->mail }}</td>
-      <td>{{ $user->child_name }}</td>
-      <td>{{ $user->child_date }}</td>
+      {{-- <td>{{ $user->child_name }}</td> --}}
+      {{-- <td>{{ $user->child_date }}</td> --}}
       {{--  <td>{{ $user->address }}</td> --}}
       <td>{{ $user->province }}</td>
-      <td>{{ $user->join_date }}</td>
+      <td>{{ Carbon\Carbon::parse($user->created_at)->format('d-m-Y ') }}</td>
+      <td>{{date("d-m-Y", strtotime($user->join_date ))}}</td>
       <td>{{ $user->choice }}</td>
       @if(isset($user->image))
       <td><a href="https://www.nexventure2018.com/images/imgs/{{$user->image}}">
@@ -127,6 +130,7 @@
         @else
         <td>ไม่ได้อัพโหลดรูปภาพ</td>
         @endif
+        <td><button type="button" class="btn btn-danger" onclick="del({{ $user->id }})">ลบ</button></td>
     </tr>
     @endforeach
 </tbody>
@@ -136,7 +140,7 @@
 </div>
 {{-- </div> --}}
 
-
+<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
 <script type="text/javascript">
     $('#search').on('keyup',function(){     
         $value=$(this).val();
@@ -150,6 +154,43 @@
             }
         });
     })
+
+    function del(id) {
+            var id = id ;
+             $(document).ready(function(){
+                    swal({
+                        text: "ท่านต้องการลบผู้ใช้คนนี้",
+                        icon: "warning",
+                        buttons: ['ยกเลิก', 'ตกลง'],
+                    }).then((ok) => {
+                        if (ok) {
+                                $.post("/deleteUser", { 
+                                    id: id,
+                                    _token: "{{ csrf_token() }}"
+                                }).then((res) => {
+                                    if (res) {
+                                        swal({
+                                            text: "ทำการลบผู้ใช้รายนี้แล้ว",
+                                            icon: "error",
+                                            button: 'ตกลง'
+                                        }).then((ok) => {
+                                            window.location.href = "/admin/dashboard";
+                                        })
+                                    } else {
+                                        swal("ไม่มีข้อมูลอยู่ในระบบ !", {
+                                            icon: "warning",
+                                            button: 'ตกลง'
+                                        }).then((ok) => {
+                                            // window.location.href = "/";
+                                        })
+                                    }
+    
+                                })
+                            }
+
+                    })
+            });
+  }
 </script>
 <script type="text/javascript">
     $.ajaxSetup({ headers: { 'csrftoken' : '{{ csrf_token() }}' } });

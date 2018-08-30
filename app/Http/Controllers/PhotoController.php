@@ -56,4 +56,23 @@ class PhotoController extends Controller
                                       ]);
     }
 
+
+    public function deleteUser(Request $request)
+        {
+            $userId = $request->id;
+            //save data into logs
+
+            //get data form db
+            $user = Users_play::find($userId);
+            $user->delete();
+
+            $image = Photo::where('image_id' ,$userId )->first();
+            if($image !== null ){
+                $image->delete();
+            }
+            // 
+
+            return response()->json(['status' => true]);
+        }
+
 }

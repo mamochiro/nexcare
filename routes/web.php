@@ -62,4 +62,6 @@ Route::group(['prefix' => 'admin'], function() {
 });
 
 Route::get('/search','AdminController@search');
+Route::post('/deleteUser', 'PhotoController@deleteUser');
+
 Route::post('/logout', 'AdminController@logout')->name('admin.logout');

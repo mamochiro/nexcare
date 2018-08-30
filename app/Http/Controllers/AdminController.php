@@ -78,11 +78,12 @@ class AdminController extends Controller
                         '<td>'.$user->phone.'</td>'.                     
                         '<td>'.$user->mail.'</td>'.
                         '<td>'.$user->child_name.'</td>'.
-                        '<td>'.$user->child_date.'</td>'. 
+                        // '<td>'.$user->child_date.'</td>'. 
                         '<td>'.$user->province.'</td>'. 
                         '<td>'.$user->join_date.'</td>'. 
                         '<td>'.$user->choice.'</td>'.  
-                        '<td>'.$view.'</td>'.                      
+                        '<td>'.$view.'</td>'.  
+                        '<td>'.'<button type="button" class="btn btn-danger" onclick="del('.$user->id.')">ลบ</button>'.'</td>'.                       
                         '</tr>';                 
                          }        
                 
@@ -113,11 +114,12 @@ class AdminController extends Controller
                         '<td>'.$user->phone.'</td>'.                     
                         '<td>'.$user->mail.'</td>'.
                         '<td>'.$user->child_name.'</td>'.
-                        '<td>'.$user->child_date.'</td>'. 
+                        // '<td>'.$user->child_date.'</td>'. 
                         '<td>'.$user->province.'</td>'. 
                         '<td>'.$user->join_date.'</td>'. 
                         '<td>'.$user->choice.'</td>'.  
-                        '<td>'.$view.'</td>'.                      
+                        '<td>'.$view.'</td>'.
+                        '<td>'.'<button type="button" class="btn btn-danger" onclick="del('.$user->id.')">ลบ</button>'.'</td>'.                             
                         '</tr>';                      
                          }        
                 
