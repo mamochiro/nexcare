@@ -14,6 +14,16 @@
 	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.2.0/css/all.css" integrity="sha384-hWVjflwFxL6sNzntih27bfxkr27PmbbK/iSvJ+a4+0owXq79v+lsFkW54bOGbiDQ" crossorigin="anonymous">
 	<link rel="stylesheet" href="{{asset('css/app.css')}}?v=0.0.3" type="text/css" />
 	<script src="{{ asset('js/jquery.js') }}"></script>
+	<meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests">
+	<!-- Global site tag (gtag.js) - Google Analytics -->
+	<script async src="https://www.googletagmanager.com/gtag/js?id=UA-124579967-1"></script>
+	<script>
+	  window.dataLayer = window.dataLayer || [];
+	  function gtag(){dataLayer.push(arguments);}
+	  gtag('js', new Date());
+
+	  gtag('config', 'UA-124579967-1');
+	</script>
 	@yield('style')
 	@yield('js')	
 </head>
