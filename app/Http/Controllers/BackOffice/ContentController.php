@@ -5,6 +5,7 @@ namespace App\Http\Controllers\BackOffice;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Content;
+use Image;
 
 class ContentController extends Controller
 {
@@ -15,12 +16,12 @@ class ContentController extends Controller
      */
     public function __construct()
     {
-        $this->middleware('auth:admin');
+        
     }
     public function index()
     {   
         $data = Content::OrderBy('created_at','desc')->get();
-        return view('backOffice.content.index',compact('data'));
+        return view('backoffice.content.index',compact('data'));
     }
 
     /**
@@ -31,7 +32,7 @@ class ContentController extends Controller
     public function create()
     {
 
-        return view('backOffice.content.create');
+        return view('backoffice.content.create');
     }
 
     /**
@@ -43,8 +44,17 @@ class ContentController extends Controller
     public function store(Request $request)
     {
         $data = $request->all();
+        if ($request->hasFile('img')) {
+            $image       = $request->file('img');
+            $extension = $image->getClientOriginalExtension();
+            $filename = str_random(50).time().'.'.$extension;
+            $image_resize = Image::make($image->getRealPath());              
+            // $image_resize->resize($width, $height);
+            $image_resize->save(public_path('uploads/' .$filename));
+        }
         $create = New Content;
         $create->fill($data);
+        $create->img = $filename;
         $create->save();
         return redirect()->route('content.index')->with('success','Created! Successfully !');
     }
@@ -69,7 +79,8 @@ class ContentController extends Controller
     public function edit($id)
     {
         $content = Content::find($id);
-        return view('backOffice.content.edit',compact('content'));
+        
+        return view('backoffice.content.edit',compact('content'));
     }
 
     /**
@@ -84,6 +95,15 @@ class ContentController extends Controller
         $data = $request->all();
         $content = Content::find($id);
         $content->fill($data);
+        if ($request->hasFile('img')) {
+            $image       = $request->file('img');
+            $extension = $image->getClientOriginalExtension();
+            $filename = str_random(50).time().'.'.$extension;
+            $image_resize = Image::make($image->getRealPath());              
+            // $image_resize->resize($width, $height);
+            $image_resize->save(public_path('uploads/' .$filename));
+            $content->img =  $filename;
+        }
         $content->save();
         return redirect()->route('content.index')->with('success','Updated Successfully !');
     }

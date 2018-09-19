@@ -68,10 +68,10 @@
     <script src="{{ asset('js/backend/daterangepicker.js') }}"></script>
     <script src="{{ asset('js/backend/dropify.min.js') }}"></script>
     <script src="{{ asset('js/backend/bootstrap-tagsinput.min.js') }}"></script>
-    <script src="{{ asset('templateEditor/ckeditor/ckeditor.js') }}"></script> 
+    {{-- <script src="{{ asset('templateEditor/ckeditor/ckeditor.js') }}"></script>  --}}
     <script src="{{ asset('js/backend/jquery.sparkline.min.js') }}"></script>
     <script src=" {{ asset('js/backend/tinymce.min.js') }}"></script>
-
+    <script src="{{ asset('ckeditor/ckeditor.js') }}"></script> 
     <script>
         
         $(function() {
@@ -82,6 +82,7 @@
         });
 
     </script>
+ 
 
 
 </head>
@@ -144,14 +145,14 @@
                         <!-- Profile -->
                         <!-- ============================================================== -->
                         <li class="nav-item dropdown u-pro">
-                            <a class="nav-link dropdown-toggle waves-effect profile-pic" href="" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><img src="{{ asset('images/home_logo.png') }}" alt="user" class="" /> <span class="hidden-md-down">{{ Auth::user()->name }} &nbsp;<i class="fa fa-angle-down"></i></span> </a>
+                           {{--  <a class="nav-link dropdown-toggle waves-effect profile-pic" href="" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><img src="{{ asset('images/home_logo.png') }}" alt="user" class="" /> <span class="hidden-md-down">{{ Auth::user()->name }} &nbsp;<i class="fa fa-angle-down"></i></span> </a> --}}
                             <div class="dropdown-menu dropdown-menu-right animated flipInY">
                                 <ul class="dropdown-user">
                                     <li>
                                         <div class="dw-user-box">
                                             <div class="u-img"><img src="{{ asset('images/home_logo.png') }}" alt="user"></div>
                                             <div class="u-text">
-                                                <h4>{{ Auth::user()->name }}</h4>
+                                                {{-- <h4>{{ Auth::user()->name }}</h4> --}}
                                                 <p class="text-muted">workmotion@gmail.com</p></div>
                                         </div>
                                     </li>
@@ -181,7 +182,13 @@
                     <ul id="sidebarnav">
                         <li class="nav-small-cap">--- MENU</li>
                         <li>
+                            <a class="waves-effect waves-dark" href="{{ route('admin.dashboard') }}" aria-expanded="false"><i class="mdi mdi-creation"></i><span class="hide-menu">DashBoard</span></a>
+                        </li>
+                        <li>
                             <a class="waves-effect waves-dark" href="{{ route('content.index') }}" aria-expanded="false"><i class="mdi mdi-creation"></i><span class="hide-menu">Content</span></a>
+                        </li>
+                         <li>
+                            <a class="waves-effect waves-dark" href="{{ route('admin.exports') }}" aria-expanded="false"><i class="mdi mdi-creation"></i><span class="hide-menu">Export</span></a>
                         </li>
                     </ul>
                 </nav>
@@ -301,6 +308,8 @@
         }
     });
     </script>
+
     @yield('js')
+
 </body>
 </html>

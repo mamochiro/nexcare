@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Input;
 use App\Users_play;
+use App\Content;
 use Auth;
 
 class HomeController extends Controller
@@ -100,7 +101,14 @@ class HomeController extends Controller
 
     public function content()
     {
-        return view('fontend.content');
+        $contents = Content::all();
+        // dd(count($contents));
+        return view('fontend.content' , ['contents' => $contents]);
+    }
+
+    public function contentShow(Content $id)
+    {
+        return view('fontend.content-list', ['content' => $id]);
     }
     
     public function result()
