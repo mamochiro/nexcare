@@ -94,7 +94,7 @@
 $(document).ready(function() {
 	
 	var wHeight = $(window).height()
-    var wWidth = $(window).width() - 30
+    var wWidth = $('.wrapper').width() - 30
 	var size = resize(381, 205, wHeight, wWidth)
 	var $modal = $('#modal');
 	var cropper;

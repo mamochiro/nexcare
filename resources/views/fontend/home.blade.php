@@ -11,6 +11,7 @@
 	<link rel="stylesheet" href="{{asset('css/bootstrap.min.css')}}" type="text/css" />
 	<style>
 		body{
+<<<<<<< HEAD
 		    background-image: url(images/home_bg.png) !important;
 			width: 100%;
 			height:100%;
@@ -20,6 +21,17 @@
 			background-position: center center;
 			height: 100vh;
 		    font-family: 'db_helvethaicamon_x55_regular';
+=======
+			background-image: url(images/home_bg.png) !important;
+			width: 100%;
+			height:100%;
+			background-repeat: no-repeat;
+			background-attachment: fixed;
+			background-size: cover;
+			background-position: center center;
+			height: 100vh;
+			font-family: 'db_helvethaicamon_x55_regular';
+>>>>>>> 3f6f28abc693d5c4cd03882d640130266026b4c7
 		}
 		span{
 			font-family: 'db_helvethaicamon_x75_bd';
@@ -27,7 +39,8 @@
 	</style>
 </head>
 <body>
-	<div class="d-lg-none">
+	<div class="wrapper">		
+		<div class="">
 			<div class="row">
 				<div class="col-12" id="sidebar" style="z-index: 2">
 					<div class="toggle-btn" onclick="toggleSidebar()">
@@ -48,6 +61,7 @@
 			<div class="container text-center" style="padding-top: 50px;height: auto;">
 				<p style="color: #3E75A2;font-size: 30px;line-height: 30px;margin-bottom: 0px;">ปิดเทอมนี้ ชวนลูก<b> ‘ปิดจอ’</b>
 					<br>ไปเจอประสบการณ์จริง กับกิจกรรม</p>
+<<<<<<< HEAD
 				<img src="{{asset('images/home_logo.png')}}" alt="Microsite-Nexcare" style="width: 100%;margin-bottom: 10px;">
 				<p style="color: #3E75A2;font-size: 25px;line-height: 25px;margin-bottom: 10px;">ลุย เล่น ลอง เรียนรู้ สร้างประสบการณ์ 
 					<br>ใน<span style="color: #F24678;"> กิจกรรม วันเดย์ แคมป์ สัมผัสวิถีเอาท์ดอร์</span>
@@ -61,14 +75,30 @@
 				</a>
 				<img src="{{asset('images/home_girl.png')}}" alt="girl" style="width: 30%;position: absolute;left: 2px;top: 428px;">
 				<img src="{{asset('images/home_boy.png')}}" alt="boy" style="width: 30%;position: absolute;right: 0px;top: 458px;">
+=======
+					<img src="{{asset('images/home_logo.png')}}" alt="Microsite-Nexcare" style="width: 100%;margin-bottom: 10px;">
+					<p style="color: #3E75A2;font-size: 25px;line-height: 25px;margin-bottom: 10px;">ลุย เล่น ลอง เรียนรู้ สร้างประสบการณ์ 
+						<br>ใน<span style="color: #F24678;"> กิจกรรม วันเดย์ แคมป์ สัมผัสวิถีเอาท์ดอร์</span>
+						<br>ที่<span style="color: #F24678;"> ฟาร์ม เดอ เล็ก </span>และ<span style="color: #F24678;"> บ้านครูธานี </span>
+					</p>
+					<p style="color: #3E75A2;font-size: 30px;line-height: 30px;margin-bottom: 0px;">แล้วจะรู้ว่า<b>โลกนอกจอ</b><br>
+						มีอะไรให้สนุก ลงมือทำ และเรียนรู้ อีกมากมาย</p>
+						<img src="{{asset('images/home_tag.png')}}" alt="home_tag" style="width: 70%;position: absolute;right: 0px;top: 400px;">
+						<a href="{{route('Reward')}}" style="background-color: transparent;">
+							<img src="{{asset('images/join.png')}}" alt="join" style="width: 30%;position: relative;top: 100px">
+						</a>
+						<img src="{{asset('images/home_girl.png')}}" alt="girl" style="width: 30%;position: absolute;left: 2px;top: 428px;">
+						<img src="{{asset('images/home_boy.png')}}" alt="boy" style="width: 30%;position: absolute;right: 0px;top: 458px;">
+					</div>
+				</div>
+>>>>>>> 3f6f28abc693d5c4cd03882d640130266026b4c7
 			</div>
-	</div>
-	<!-- PC mode -->
-	<div class="d-none d-lg-block">
+			<!-- PC mode -->
+	<!-- <div class="d-none d-lg-block">
 		<div class="container-fluid text-center">
 			<h1>รองรับเฉพาะ mobile นะ</h1>
 		</div>
-	</div>
+	</div> -->
 
 	<!-- script -->
 	<script src="{{asset('js/script.js')}}"></script>
